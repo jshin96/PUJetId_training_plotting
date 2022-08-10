@@ -19,7 +19,7 @@ args = parser.parse_args()
 era = args.era
 inputFiles = args.inputFiles
 
-tChain  = ROOT.TChain("jmechs/events")
+tChain  = ROOT.TChain("Events")
 outFile = ROOT.TFile("training_trees_pt10To100_chs_%s.root" % era, "RECREATE")
 
 for inputFile in inputFiles:

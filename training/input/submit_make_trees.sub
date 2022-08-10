@@ -3,12 +3,83 @@ output               = std_make_trees_$(ClusterId)_$(ProcId)
 error                = std_make_trees_$(ClusterId)_$(ProcId)
 log                  = log_make_trees_$(ClusterId)_$(ProcId)
 
-transfer_input_files = make_training_trees.py,
+transfer_input_files = make_training_trees_test.py
 
 #arguments            = 94X /eos/user/s/singhr/jme_ntuples/dy_inc_2017/cut_pt10/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8.root
-arguments            = 102X /eos/user/s/singhr/jme_ntuples/dy_inc_2018/cut_pt10/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8.root
-
+#arguments            = 102X /eos/user/s/singhr/jme_ntuples/dy_inc_2018/cut_pt10/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8.root
+arguments            = 106X puppi $(input) 10 10000 $(output_index)
 +JobFlavour          = "tomorrow"
 MaxTransferOutputMB = -1
 
+
+input=input_0.txt
+output_index=0
+queue
+
+input=input_1.txt
+output_index=1
+queue
+
+input=input_2.txt
+output_index=2
+queue
+
+input=input_3.txt
+output_index=3
+queue
+
+input=input_4.txt
+output_index=4
+queue
+
+input=input_5.txt
+output_index=5
+queue
+
+input=input_6.txt
+output_index=6
+queue
+
+input=input_7.txt
+output_index=7
+queue
+
+input=input_8.txt
+output_index=8
+queue
+
+input=input_9.txt
+output_index=9
+queue
+
+input=input_10.txt
+output_index=10
+queue
+
+input=input_11.txt
+output_index=11
+queue
+
+input=input_12.txt
+output_index=12
+queue
+
+input=input_13.txt
+output_index=13
+queue
+
+input=input_14.txt
+output_index=14
+queue
+
+input=input_15.txt
+output_index=15
+queue
+
+input=input_16.txt
+output_index=16
+queue
+
+input=input_17.txt
+output_index=17
 queue

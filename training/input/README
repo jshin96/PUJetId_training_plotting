@@ -1,0 +1,7 @@
+First, make input.txt with all the files needed for training using dasgoclient -query"das/address/to/files">> input.txt
+
+Second, Run python split_input.py to divide input list so each txt has 10 files 
+
+Third, Run ./adjust_submit_file.sh $last_index_number_of_input_files to change submit file to submit each input_index.txt
+
+Lastly, condor_submit submit_make_trees.sub

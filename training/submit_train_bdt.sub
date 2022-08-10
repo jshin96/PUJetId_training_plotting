@@ -7,8 +7,8 @@ log                   = output/log_train_bdt_$(ClusterId)_$(ProcId)
 transfer_input_files  = train_bdt.py,
 transfer_output_files = output,
 
-#arguments            = 94X 500000 chs /afs/cern.ch/work/s/singhr/jets_study/PUJetId_training_plotting/training/input/ $(eta_bin)
-arguments            = 102X 500000 chs /afs/cern.ch/work/s/singhr/jets_study/PUJetId_training_plotting/training/input/ $(eta_bin)
+arguments            = 106X 500000 puppi ~/scratch/training_code/PUJetId_training_plotting/training/input/ $(eta_bin) 10 100
+
 
 #+JobFlavour           = "espresso"
 +JobFlavour           = "workday"
