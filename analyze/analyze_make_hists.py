@@ -70,7 +70,7 @@ print("====================")
 print("Input File:\t", input_filename)
 print("Output File:\t", output_filename)
 
-input_tree = "jmechs/events"
+input_tree = "Events"
 
 input_file = ROOT.TFile.Open(input_filename)
 events = input_file.Get(input_tree)
@@ -448,7 +448,13 @@ def process_event(e):
         
     weight = weight * gen_weight * pu_weight
 
-    nvtx = e.nVtx_
+    nvtx = e.PV_npvsGood
+
+    if e.nMuon==2:
+        Muon1 = ROOT.TLorentzVector()
+        Muon2 = ROOT.TLorentzVector()
+
+
 
     lept_pt1 = e.lepPt[0]
     lept_eta1 = e.lepEta[0]
@@ -498,12 +504,12 @@ def process_event(e):
         jet_mass = e.mass[i]
         jet_energy = e.energy[i]
 
-        jet_chf = e.chf[i]
-        jet_cemf = e.cemf[i]
-        jet_nemf = e.nemf[i]
-        jet_nhf = e.nhf[i]
+        jet_chf = e.Jet_chHEF[i]
+        jet_cemf = e.Jet_chEmEF[i]
+        jet_nemf = e.Jet_neEmEF[i]
+        jet_nhf = e.Jet_neHEF[i]
         jet_phf = e.phf[i]
-        jet_muf = e.muf[i]
+        jet_muf = e.Jet_muEF[i]
         jet_elf = e.elf[i]
 
         jet_npr = e.npr[i]

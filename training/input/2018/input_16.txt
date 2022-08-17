@@ -1,0 +1,10 @@
+/eos/user/s/shin/jme_NANO/2018/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_90.root 
+/eos/user/s/shin/jme_NANO/2018/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_91.root 
+/eos/user/s/shin/jme_NANO/2018/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_92.root 
+/eos/user/s/shin/jme_NANO/2018/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_93.root 
+/eos/user/s/shin/jme_NANO/2018/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_94.root 
+/eos/user/s/shin/jme_NANO/2018/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_95.root 
+/eos/user/s/shin/jme_NANO/2018/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_96.root 
+/eos/user/s/shin/jme_NANO/2018/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_97.root 
+/eos/user/s/shin/jme_NANO/2018/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_98.root 
+/eos/user/s/shin/jme_NANO/2018/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_99.root 

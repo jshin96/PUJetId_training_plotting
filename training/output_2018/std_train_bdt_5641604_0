@@ -1,0 +1,335 @@
+Setting Env
+DataSetInfo              : [BDT_puppi_106X] : Added class "Signal"
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 4437671 events
+DataSetInfo              : [BDT_puppi_106X] : Added class "Background"
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 11243 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 5833249 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 14617 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 4175277 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 10698 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 3990091 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 10065 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 3800831 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 9443 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 4267112 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 10660 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 5497800 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 13907 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 5821009 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 14557 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 4862981 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 12357 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 5279675 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 13317 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 5293390 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 13710 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 5454115 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 13752 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 4212286 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 10523 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 4099700 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 10373 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 5869414 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 15000 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 5121192 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 12945 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 5443581 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 13600 events
+                         : Add Tree Eta0p0To2p5_Prompt of type Signal with 160713 events
+                         : Add Tree Eta0p0To2p5_Pileup of type Background with 407 events
+                         : Dataset[BDT_puppi_106X] : Class index : 0  name : Signal
+                         : Dataset[BDT_puppi_106X] : Class index : 1  name : Background
+Factory                  : Booking method: [1mBDT[0m
+                         : 
+                         : the option NegWeightTreatment=InverseBoostNegWeights does not exist for BoostType=Grad
+                         : --> change to new default NegWeightTreatment=Pray
+DataSetFactory           : [BDT_puppi_106X] : Number of events in input trees
+                         : 
+                         : 
+                         : Number of training and testing events
+                         : ---------------------------------------------------------------------------
+                         : Signal     -- training events            : 105587
+                         : Signal     -- testing events             : 105587
+                         : Signal     -- training and testing events: 211174
+                         : Background -- training events            : 105587
+                         : Background -- testing events             : 105587
+                         : Background -- training and testing events: 211174
+                         : 
+DataSetInfo              : Correlation matrix (Signal):
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                         :                         PV_npvsGood JetPuppi_puId_beta JetPuppi_puId_dR2Mean JetPuppi_puId_frac01 JetPuppi_puId_frac02 JetPuppi_puId_frac03 JetPuppi_puId_frac04 JetPuppi_puId_majW JetPuppi_puId_minW JetPuppi_puId_jetR JetPuppi_puId_jetRchg JetPuppi_nConstituents JetPuppi_puId_nCharged JetPuppi_puId_ptD JetPuppi_puId_pull
+                         :            PV_npvsGood:      +1.000             -0.068                +0.021               -0.042               +0.026               +0.042               +0.042             +0.047             +0.038             -0.046                -0.047                 +0.029                 +0.014            -0.050             +0.009
+                         :     JetPuppi_puId_beta:      -0.068             +1.000                -0.038               +0.297               -0.218               -0.207               -0.104             -0.232             -0.181             +0.315                +0.316                 -0.168                 -0.206            +0.320             +0.133
+                         :  JetPuppi_puId_dR2Mean:      +0.021             -0.038                +1.000               -0.525               +0.512               +0.620               +0.534             +0.803             +0.855             -0.460                -0.441                 +0.300                 +0.324            -0.432             +0.845
+                         :   JetPuppi_puId_frac01:      -0.042             +0.297                -0.525               +1.000               -0.880               -0.724               -0.432             -0.882             -0.758             +0.863                +0.833                 -0.515                 -0.491            +0.858             -0.072
+                         :   JetPuppi_puId_frac02:      +0.026             -0.218                +0.512               -0.880               +1.000               +0.420               +0.267             +0.750             +0.654             -0.717                -0.701                 +0.391                 +0.370            -0.702             +0.209
+                         :   JetPuppi_puId_frac03:      +0.042             -0.207                +0.620               -0.724               +0.420               +1.000               +0.279             +0.793             +0.726             -0.659                -0.629                 +0.407                 +0.403            -0.652             +0.248
+                         :   JetPuppi_puId_frac04:      +0.042             -0.104                +0.534               -0.432               +0.267               +0.279               +1.000             +0.571             +0.603             -0.429                -0.401                 +0.415                 +0.409            -0.439             +0.337
+                         :     JetPuppi_puId_majW:      +0.047             -0.232                +0.803               -0.882               +0.750               +0.793               +0.571             +1.000             +0.880             -0.835                -0.807                 +0.502                 +0.490            -0.819             +0.420
+                         :     JetPuppi_puId_minW:      +0.038             -0.181                +0.855               -0.758               +0.654               +0.726               +0.603             +0.880             +1.000             -0.752                -0.719                 +0.515                 +0.507            -0.737             +0.546
+                         :     JetPuppi_puId_jetR:      -0.046             +0.315                -0.460               +0.863               -0.717               -0.659               -0.429             -0.835             -0.752             +1.000                +0.968                 -0.695                 -0.622            +0.996             -0.046
+                         :  JetPuppi_puId_jetRchg:      -0.047             +0.316                -0.441               +0.833               -0.701               -0.629               -0.401             -0.807             -0.719             +0.968                +1.000                 -0.665                 -0.583            +0.966             -0.051
+                         : JetPuppi_nConstituents:      +0.029             -0.168                +0.300               -0.515               +0.391               +0.407               +0.415             +0.502             +0.515             -0.695                -0.665                 +1.000                 +0.860            -0.728             +0.073
+                         : JetPuppi_puId_nCharged:      +0.014             -0.206                +0.324               -0.491               +0.370               +0.403               +0.409             +0.490             +0.507             -0.622                -0.583                 +0.860                 +1.000            -0.648             +0.103
+                         :      JetPuppi_puId_ptD:      -0.050             +0.320                -0.432               +0.858               -0.702               -0.652               -0.439             -0.819             -0.737             +0.996                +0.966                 -0.728                 -0.648            +1.000             -0.023
+                         :     JetPuppi_puId_pull:      +0.009             +0.133                +0.845               -0.072               +0.209               +0.248               +0.337             +0.420             +0.546             -0.046                -0.051                 +0.073                 +0.103            -0.023             +1.000
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DataSetInfo              : Correlation matrix (Background):
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                         :                         PV_npvsGood JetPuppi_puId_beta JetPuppi_puId_dR2Mean JetPuppi_puId_frac01 JetPuppi_puId_frac02 JetPuppi_puId_frac03 JetPuppi_puId_frac04 JetPuppi_puId_majW JetPuppi_puId_minW JetPuppi_puId_jetR JetPuppi_puId_jetRchg JetPuppi_nConstituents JetPuppi_puId_nCharged JetPuppi_puId_ptD JetPuppi_puId_pull
+                         :            PV_npvsGood:      +1.000             -0.062                -0.002               -0.005               +0.019               -0.003               -0.022             +0.008             +0.004             -0.027                -0.022                 -0.018                 -0.029            -0.026             +0.004
+                         :     JetPuppi_puId_beta:      -0.062             +1.000                +0.097               +0.252               -0.154               -0.101               +0.016             -0.104             -0.040             +0.327                +0.291                 -0.184                 -0.248            +0.344             +0.211
+                         :  JetPuppi_puId_dR2Mean:      -0.002             +0.097                +1.000               -0.345               +0.372               +0.548               +0.521             +0.818             +0.868             -0.289                -0.253                 +0.262                 +0.296            -0.233             +0.894
+                         :   JetPuppi_puId_frac01:      -0.005             +0.252                -0.345               +1.000               -0.796               -0.610               -0.249             -0.760             -0.562             +0.840                +0.776                 -0.439                 -0.384            +0.832             +0.018
+                         :   JetPuppi_puId_frac02:      +0.019             -0.154                +0.372               -0.796               +1.000               +0.181               +0.095             +0.596             +0.457             -0.568                -0.559                 +0.206                 +0.182            -0.540             +0.204
+                         :   JetPuppi_puId_frac03:      -0.003             -0.101                +0.548               -0.610               +0.181               +1.000               +0.149             +0.734             +0.633             -0.580                -0.507                 +0.375                 +0.357            -0.562             +0.246
+                         :   JetPuppi_puId_frac04:      -0.022             +0.016                +0.521               -0.249               +0.095               +0.149               +1.000             +0.496             +0.567             -0.279                -0.227                 +0.412                 +0.392            -0.282             +0.385
+                         :     JetPuppi_puId_majW:      +0.008             -0.104                +0.818               -0.760               +0.596               +0.734               +0.496             +1.000             +0.831             -0.717                -0.662                 +0.425                 +0.410            -0.678             +0.524
+                         :     JetPuppi_puId_minW:      +0.004             -0.040                +0.868               -0.562               +0.457               +0.633               +0.567             +0.831             +1.000             -0.576                -0.499                 +0.465                 +0.454            -0.538             +0.651
+                         :     JetPuppi_puId_jetR:      -0.027             +0.327                -0.289               +0.840               -0.568               -0.580               -0.279             -0.717             -0.576             +1.000                +0.904                 -0.599                 -0.500            +0.991             +0.079
+                         :  JetPuppi_puId_jetRchg:      -0.022             +0.291                -0.253               +0.776               -0.559               -0.507               -0.227             -0.662             -0.499             +0.904                +1.000                 -0.481                 -0.379            +0.906             +0.056
+                         : JetPuppi_nConstituents:      -0.018             -0.184                +0.262               -0.439               +0.206               +0.375               +0.412             +0.425             +0.465             -0.599                -0.481                 +1.000                 +0.810            -0.643             +0.046
+                         : JetPuppi_puId_nCharged:      -0.029             -0.248                +0.296               -0.384               +0.182               +0.357               +0.392             +0.410             +0.454             -0.500                -0.379                 +0.810                 +1.000            -0.530             +0.103
+                         :      JetPuppi_puId_ptD:      -0.026             +0.344                -0.233               +0.832               -0.540               -0.562               -0.282             -0.678             -0.538             +0.991                +0.906                 -0.643                 -0.530            +1.000             +0.129
+                         :     JetPuppi_puId_pull:      +0.004             +0.211                +0.894               +0.018               +0.204               +0.246               +0.385             +0.524             +0.651             +0.079                +0.056                 +0.046                 +0.103            +0.129             +1.000
+                         : ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DataSetFactory           : [BDT_puppi_106X] :  
+                         : 
+Factory                  : [1mTrain all methods[0m
+Factory                  : [BDT_puppi_106X] : Create Transformation "I" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'PV_npvsGood' <---> Output : variable 'PV_npvsGood'
+                         : Input : variable 'JetPuppi_puId_beta' <---> Output : variable 'JetPuppi_puId_beta'
+                         : Input : variable 'JetPuppi_puId_dR2Mean' <---> Output : variable 'JetPuppi_puId_dR2Mean'
+                         : Input : variable 'JetPuppi_puId_frac01' <---> Output : variable 'JetPuppi_puId_frac01'
+                         : Input : variable 'JetPuppi_puId_frac02' <---> Output : variable 'JetPuppi_puId_frac02'
+                         : Input : variable 'JetPuppi_puId_frac03' <---> Output : variable 'JetPuppi_puId_frac03'
+                         : Input : variable 'JetPuppi_puId_frac04' <---> Output : variable 'JetPuppi_puId_frac04'
+                         : Input : variable 'JetPuppi_puId_majW' <---> Output : variable 'JetPuppi_puId_majW'
+                         : Input : variable 'JetPuppi_puId_minW' <---> Output : variable 'JetPuppi_puId_minW'
+                         : Input : variable 'JetPuppi_puId_jetR' <---> Output : variable 'JetPuppi_puId_jetR'
+                         : Input : variable 'JetPuppi_puId_jetRchg' <---> Output : variable 'JetPuppi_puId_jetRchg'
+                         : Input : variable 'JetPuppi_nConstituents' <---> Output : variable 'JetPuppi_nConstituents'
+                         : Input : variable 'JetPuppi_puId_nCharged' <---> Output : variable 'JetPuppi_puId_nCharged'
+                         : Input : variable 'JetPuppi_puId_ptD' <---> Output : variable 'JetPuppi_puId_ptD'
+                         : Input : variable 'JetPuppi_puId_pull' <---> Output : variable 'JetPuppi_puId_pull'
+Factory                  : [BDT_puppi_106X] : Create Transformation "G" with events from all classes.
+                         : 
+                         : Transformation, Variable selection : 
+                         : Input : variable 'PV_npvsGood' <---> Output : variable 'PV_npvsGood'
+                         : Input : variable 'JetPuppi_puId_beta' <---> Output : variable 'JetPuppi_puId_beta'
+                         : Input : variable 'JetPuppi_puId_dR2Mean' <---> Output : variable 'JetPuppi_puId_dR2Mean'
+                         : Input : variable 'JetPuppi_puId_frac01' <---> Output : variable 'JetPuppi_puId_frac01'
+                         : Input : variable 'JetPuppi_puId_frac02' <---> Output : variable 'JetPuppi_puId_frac02'
+                         : Input : variable 'JetPuppi_puId_frac03' <---> Output : variable 'JetPuppi_puId_frac03'
+                         : Input : variable 'JetPuppi_puId_frac04' <---> Output : variable 'JetPuppi_puId_frac04'
+                         : Input : variable 'JetPuppi_puId_majW' <---> Output : variable 'JetPuppi_puId_majW'
+                         : Input : variable 'JetPuppi_puId_minW' <---> Output : variable 'JetPuppi_puId_minW'
+                         : Input : variable 'JetPuppi_puId_jetR' <---> Output : variable 'JetPuppi_puId_jetR'
+                         : Input : variable 'JetPuppi_puId_jetRchg' <---> Output : variable 'JetPuppi_puId_jetRchg'
+                         : Input : variable 'JetPuppi_nConstituents' <---> Output : variable 'JetPuppi_nConstituents'
+                         : Input : variable 'JetPuppi_puId_nCharged' <---> Output : variable 'JetPuppi_puId_nCharged'
+                         : Input : variable 'JetPuppi_puId_ptD' <---> Output : variable 'JetPuppi_puId_ptD'
+                         : Input : variable 'JetPuppi_puId_pull' <---> Output : variable 'JetPuppi_puId_pull'
+TFHandler_Factory        :               Variable                      Mean                      RMS              [        Min                      Max ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         :            PV_npvsGood:                  15.823                  5.4409   [                  1.0000                  58.000 ]
+                         :     JetPuppi_puId_beta:                 0.86574                 0.19840   [                 -1.0000                  1.0000 ]
+                         :  JetPuppi_puId_dR2Mean:                0.013979                0.028289   [                 -1.0000                0.099609 ]
+                         :   JetPuppi_puId_frac01:                 0.58195                 0.36156   [                 -1.0000                  1.0000 ]
+                         :   JetPuppi_puId_frac02:                 0.21155                 0.24995   [                 -1.0000                  1.0156 ]
+                         :   JetPuppi_puId_frac03:                 0.14564                 0.16892   [                 -1.0000                  1.0156 ]
+                         :   JetPuppi_puId_frac04:                0.062820                0.077666   [                 -1.0000                 0.62500 ]
+                         :     JetPuppi_puId_majW:                0.083696                0.070265   [                 -1.0000                 0.30859 ]
+                         :     JetPuppi_puId_minW:                0.039288                0.045175   [                 -1.0000                 0.19336 ]
+                         :     JetPuppi_puId_jetR:                 0.59488                 0.29626   [                 -1.0000                  1.0000 ]
+                         :  JetPuppi_puId_jetRchg:                 0.55612                 0.32520   [                 -1.0000                  1.0000 ]
+                         : JetPuppi_nConstituents:                  6.5387                  3.4176   [                  1.0000                  54.000 ]
+                         : JetPuppi_puId_nCharged:                  4.0692                  2.2928   [                 -1.0000                  35.000 ]
+                         :      JetPuppi_puId_ptD:                 0.66187                 0.23603   [                 -1.0000                  1.0000 ]
+                         :     JetPuppi_puId_pull:               0.0027131                0.023080   [                 -1.0000                0.026367 ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         : Preparing the Gaussian transformation...
+TFHandler_Factory        :               Variable                      Mean                      RMS              [        Min                      Max ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         :            PV_npvsGood:               0.0014342                 0.99779   [                 -5.5914                  5.7307 ]
+                         :     JetPuppi_puId_beta:                  1.6761                  2.7309   [                 -3.1665                  5.7307 ]
+                         :  JetPuppi_puId_dR2Mean:               -0.011932                 0.98929   [                 -3.2767                  5.7307 ]
+                         :   JetPuppi_puId_frac01:                -0.17667                  1.6005   [                 -3.2366                  5.7307 ]
+                         :   JetPuppi_puId_frac02:                -0.72758                  1.5319   [                 -3.1951                  5.4200 ]
+                         :   JetPuppi_puId_frac03:                -0.56580                  1.4534   [                 -3.2182                  5.7307 ]
+                         :   JetPuppi_puId_frac04:                -0.80984                  1.5412   [                 -3.1842                  5.7307 ]
+                         :     JetPuppi_puId_majW:               -0.028201                  1.0180   [                 -3.2782                  5.7307 ]
+                         :     JetPuppi_puId_minW:               -0.043184                  1.0381   [                 -3.2749                  5.7307 ]
+                         :     JetPuppi_puId_jetR:                 0.12910                  1.2834   [                 -3.2810                  5.7307 ]
+                         :  JetPuppi_puId_jetRchg:                 0.12843                  1.2831   [                 -3.2793                  5.7307 ]
+                         : JetPuppi_nConstituents:               -0.035920                  1.1308   [                 -4.5666                  5.7307 ]
+                         : JetPuppi_puId_nCharged:                0.042814                 0.93260   [                 -5.4049                  5.7307 ]
+                         :      JetPuppi_puId_ptD:                 0.13149                  1.2806   [                 -3.2805                  5.7307 ]
+                         :     JetPuppi_puId_pull:             -0.00083864                 0.95949   [                 -3.2750                  5.7307 ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         : Ranking input variables (method unspecific)...
+IdTransformation         : Ranking result (top variable is best ranked)
+                         : -----------------------------------------------
+                         : Rank : Variable               : Separation
+                         : -----------------------------------------------
+                         :    1 : JetPuppi_puId_majW     : 1.400e-01
+                         :    2 : JetPuppi_puId_frac01   : 1.296e-01
+                         :    3 : JetPuppi_puId_jetRchg  : 1.221e-01
+                         :    4 : JetPuppi_puId_dR2Mean  : 1.194e-01
+                         :    5 : JetPuppi_puId_ptD      : 1.122e-01
+                         :    6 : JetPuppi_puId_jetR     : 1.106e-01
+                         :    7 : JetPuppi_puId_minW     : 9.916e-02
+                         :    8 : JetPuppi_puId_beta     : 9.903e-02
+                         :    9 : JetPuppi_puId_frac03   : 9.160e-02
+                         :   10 : JetPuppi_puId_frac02   : 8.186e-02
+                         :   11 : JetPuppi_puId_pull     : 6.269e-02
+                         :   12 : JetPuppi_nConstituents : 5.526e-02
+                         :   13 : JetPuppi_puId_frac04   : 3.704e-02
+                         :   14 : JetPuppi_puId_nCharged : 2.122e-02
+                         :   15 : PV_npvsGood            : 5.862e-03
+                         : -----------------------------------------------
+Factory                  : Train method: BDT for Classification
+                         : 
+BDT                      : #events: (reweighted) sig: 105587 bkg: 105587
+                         : #events: (unweighted) sig: 105587 bkg: 105587
+                         : Training 500 Decision Trees ... patience please
+0%, time left: unknown
+6%, time left: 5 mins
+12%, time left: 269 sec
+19%, time left: 244 sec
+25%, time left: 223 sec
+31%, time left: 208 sec
+37%, time left: 187 sec
+44%, time left: 169 sec
+50%, time left: 148 sec
+56%, time left: 130 sec
+62%, time left: 113 sec
+69%, time left: 93 sec
+75%, time left: 74 sec
+81%, time left: 56 sec
+87%, time left: 37 sec
+94%, time left: 18 sec
+                         : Elapsed time for training with 211174 events: 314 sec         
+BDT                      : [BDT_puppi_106X] : Evaluation of BDT on training sample (211174 events)
+0%, time left: unknown
+6%, time left: 8 sec
+12%, time left: 8 sec
+18%, time left: 7 sec
+25%, time left: 6 sec
+31%, time left: 6 sec
+37%, time left: 5 sec
+43%, time left: 5 sec
+50%, time left: 4 sec
+56%, time left: 3 sec
+62%, time left: 3 sec
+68%, time left: 2 sec
+75%, time left: 2 sec
+81%, time left: 1 sec
+87%, time left: 1 sec
+93%, time left: 0 sec
+                         : Elapsed time for evaluation of 211174 events: 9.23 sec       
+                         : Creating xml weight file: [0;36mBDT_puppi_106X/weights/pileupJetId_106X_Eta0p0To2p5_puppi_BDT.weights.xml[0m
+                         : Creating standalone class: [0;36mBDT_puppi_106X/weights/pileupJetId_106X_Eta0p0To2p5_puppi_BDT.class.C[0m
+                         : BDT_puppi_106X/tmva_output_Pt10To10000Eta0p0To2p5_puppi.root:/BDT_puppi_106X/Method_BDT/BDT
+Factory                  : Training finished
+                         : 
+                         : Ranking input variables (method specific)...
+BDT                      : Ranking result (top variable is best ranked)
+                         : --------------------------------------------------------
+                         : Rank : Variable               : Variable Importance
+                         : --------------------------------------------------------
+                         :    1 : JetPuppi_puId_jetRchg  : 1.134e-01
+                         :    2 : JetPuppi_puId_beta     : 1.095e-01
+                         :    3 : JetPuppi_puId_majW     : 9.095e-02
+                         :    4 : JetPuppi_puId_ptD      : 7.800e-02
+                         :    5 : JetPuppi_nConstituents : 7.571e-02
+                         :    6 : JetPuppi_puId_frac01   : 7.464e-02
+                         :    7 : JetPuppi_puId_jetR     : 6.855e-02
+                         :    8 : JetPuppi_puId_minW     : 6.279e-02
+                         :    9 : JetPuppi_puId_frac04   : 6.053e-02
+                         :   10 : PV_npvsGood            : 5.501e-02
+                         :   11 : JetPuppi_puId_nCharged : 4.834e-02
+                         :   12 : JetPuppi_puId_frac03   : 4.755e-02
+                         :   13 : JetPuppi_puId_frac02   : 4.106e-02
+                         :   14 : JetPuppi_puId_pull     : 3.825e-02
+                         :   15 : JetPuppi_puId_dR2Mean  : 3.567e-02
+                         : --------------------------------------------------------
+Factory                  : === Destroy and recreate all methods via weight files for testing ===
+                         : 
+                         : Reading weight file: [0;36mBDT_puppi_106X/weights/pileupJetId_106X_Eta0p0To2p5_puppi_BDT.weights.xml[0m
+Factory                  : [1mTest all methods[0m
+Factory                  : Test method: BDT for Classification performance
+                         : 
+BDT                      : [BDT_puppi_106X] : Evaluation of BDT on testing sample (211174 events)
+0%, time left: unknown
+6%, time left: 6 sec
+12%, time left: 5 sec
+18%, time left: 4 sec
+25%, time left: 4 sec
+31%, time left: 4 sec
+37%, time left: 3 sec
+43%, time left: 3 sec
+50%, time left: 2 sec
+56%, time left: 2 sec
+62%, time left: 2 sec
+68%, time left: 1 sec
+75%, time left: 1 sec
+81%, time left: 1 sec
+87%, time left: 0 sec
+93%, time left: 0 sec
+                         : Elapsed time for evaluation of 211174 events: 7.37 sec       
+Factory                  : [1mEvaluate all methods[0m
+Factory                  : Evaluate classifier: BDT
+                         : 
+BDT                      : [BDT_puppi_106X] : Loop over test events and fill histograms with classifier response...
+                         : 
+TFHandler_BDT            :               Variable                      Mean                      RMS              [        Min                      Max ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         :            PV_npvsGood:                  15.836                  5.4358   [                  1.0000                  50.000 ]
+                         :     JetPuppi_puId_beta:                 0.86525                 0.19924   [                 -1.0000                  1.0000 ]
+                         :  JetPuppi_puId_dR2Mean:                0.013978                0.028815   [                 -1.0000                0.099609 ]
+                         :   JetPuppi_puId_frac01:                 0.58144                 0.36180   [                 -1.0000                  1.0000 ]
+                         :   JetPuppi_puId_frac02:                 0.21154                 0.25057   [                 -1.0000                  1.0156 ]
+                         :   JetPuppi_puId_frac03:                 0.14636                 0.16979   [                 -1.0000                  1.0156 ]
+                         :   JetPuppi_puId_frac04:                0.062441                0.077584   [                 -1.0000                 0.74219 ]
+                         :     JetPuppi_puId_majW:                0.083834                0.070519   [                 -1.0000                 0.30469 ]
+                         :     JetPuppi_puId_minW:                0.039232                0.045506   [                 -1.0000                 0.18945 ]
+                         :     JetPuppi_puId_jetR:                 0.59458                 0.29604   [                 -1.0000                  1.0000 ]
+                         :  JetPuppi_puId_jetRchg:                 0.55594                 0.32496   [                 -1.0000                  1.0000 ]
+                         : JetPuppi_nConstituents:                  6.5248                  3.3947   [                  1.0000                  51.000 ]
+                         : JetPuppi_puId_nCharged:                  4.0556                  2.2792   [                 -1.0000                  31.000 ]
+                         :      JetPuppi_puId_ptD:                 0.66164                 0.23584   [                 -1.0000                  1.0000 ]
+                         :     JetPuppi_puId_pull:               0.0026968                0.023691   [                 -1.0000                0.023193 ]
+                         : ---------------------------------------------------------------------------------------------------------------------------------
+                         : 
+                         : Evaluation results ranked by best signal efficiency and purity (area)
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : DataSet       MVA                       
+                         : Name:         Method:          ROC-integ
+                         : BDT_puppi_106X BDT            : 0.772
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : 
+                         : Testing efficiency compared to training efficiency (overtraining check)
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : DataSet              MVA              Signal efficiency: from test sample (from training sample) 
+                         : Name:                Method:          @B=0.01             @B=0.10            @B=0.30   
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : BDT_puppi_106X       BDT            : 0.084 (0.080)       0.397 (0.394)      0.711 (0.711)
+                         : -------------------------------------------------------------------------------------------------------------------
+                         : 
+Dataset:BDT_puppi_106X   : Created tree 'TestTree' with 211174 events
+                         : 
+Dataset:BDT_puppi_106X   : Created tree 'TrainTree' with 211174 events
+                         : 
+Factory                  : [1mThank you for using TMVA![0m
+                         : [1mFor citation information, please visit: http://tmva.sf.net/citeTMVA.html[0m
+===================
+.
+.
+Starting
+eta bin:Eta0p0To2p5
+.
+.
+===================
