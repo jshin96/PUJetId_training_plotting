@@ -1,0 +1,17 @@
+executable           = run_make_trees_PUPPI_CHS_matching.sh 
+output               = std_make_trees_puppi_CHS_matching_year_$(ProcId)
+error                = std_make_trees_puppi_CHS_matching_year_$(ProcId)
+log                  = log_make_trees_puppi_CHS_matching_year_$(ProcId)
+use_x509userproxy    = True
+GetEnv               = True
+Universe             = vanilla
+
+transfer_input_files = make_training_trees_PUPPI_CHS_matching.py
+
+arguments            = 106X year puppi $(input) 10 100 $(output_index)
++JobFlavour          = "tomorrow"
+MaxTransferOutputMB = -1
+
+
+input=input_year_index.txt
+queue

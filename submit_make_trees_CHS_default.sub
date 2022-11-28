@@ -1,0 +1,17 @@
+executable           = run_make_trees_CHS.sh 
+output               = std_make_trees_chs_year_$(output_index)
+error                = std_make_trees_chs_year_$(output_index)
+log                  = log_make_trees_chs_year_$(output_index)
+use_x509userproxy    = true
+GetEnv               = True
+Universe             = vanilla
+
+transfer_input_files = make_training_trees_CHS.py
+
+arguments            = 106X year chs $(input) 10 100 $(output_index)
++JobFlavour          = "tomorrow"
+MaxTransferOutputMB = -1
+
+
+input=input_year_index.txt
+queue
