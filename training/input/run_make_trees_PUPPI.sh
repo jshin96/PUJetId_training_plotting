@@ -1,5 +1,4 @@
 #!/bin/bash
-
 DIR=$( dirname "${BASH_SOURCE[0]}" )
 
 cd $DIR
@@ -16,7 +15,7 @@ PATH=$PYTHONUSERBASE/bin:$PATH
 
 echo "now installing pip pkgs"
 
-pip install --user --upgrade pip
+#pip install --user --upgrade pip
 
 pip install --user --upgrade uproot
 
@@ -27,7 +26,7 @@ current_version=`pip show pyroot_cms_scripts | grep Version | cut -d' ' -f 2`
 if [ current_version!=install_version ]; then
 
     if [ ! -d pyroot_cms_scripts ]; then
-        git clone https://github.com/jshin96/pyroot_cms_scripts.git --quiet
+	git clone https://github.com/jshin96/pyroot_cms_scripts.git --quiet
     fi
     (cd pyroot_cms_scripts
     git pull origin $install_version
@@ -38,24 +37,9 @@ fi
 
 cd -
 
-echo "Setting Env"
 
-export era=$1
-export max_N=$2
-export jet_type=$3
-export in_dir=$4
-export year=$9
-export d_name="BDT_${jet_type}_${era}_${year}"
-export eta_bin=$5
-export minJetpt=$6
-export maxJetpt=$7
-export input_index=$8
-mkdir -p output
-cd output
 
-mkdir -p $d_name
+echo "Starting"
 
-chmod +x /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/train_bdt_test.py
-/u/user/shin/scratch/training_code/PUJetId_training_plotting/training/train_bdt_test.py --era $era --max_N $max_N --jet_type $jet_type --in_dir $in_dir  --d_name  $d_name --eta_bins $eta_bin --minJet_pt $minJetpt --maxJet_pt $maxJetpt --input_index $input_index --year $year
-
-cd ..
+chmod +x make_training_trees_PUPPI.py
+./make_training_trees_PUPPI.py --era $1 --year $2 --jet_type $3 --inputFilesList $4 --minJet_pt $5 --maxJet_pt $6 --output_index $7

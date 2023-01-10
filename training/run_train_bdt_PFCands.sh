@@ -55,7 +55,7 @@ cd output
 
 mkdir -p $d_name
 
-chmod +x /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/train_bdt_test.py
-/u/user/shin/scratch/training_code/PUJetId_training_plotting/training/train_bdt_test.py --era $era --max_N $max_N --jet_type $jet_type --in_dir $in_dir  --d_name  $d_name --eta_bins $eta_bin --minJet_pt $minJetpt --maxJet_pt $maxJetpt --input_index $input_index --year $year
+chmod +x /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/train_bdt_PFCands.py
+/u/user/shin/scratch/training_code/PUJetId_training_plotting/training/train_bdt_PFCands.py --era $era --max_N $max_N --jet_type $jet_type --in_dir $in_dir  --d_name  $d_name --eta_bins $eta_bin --minJet_pt $minJetpt --maxJet_pt $maxJetpt --input_index $input_index --year $year
 
 cd ..

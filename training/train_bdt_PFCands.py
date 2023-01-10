@@ -62,7 +62,7 @@ f_maxJetpt=float(maxJetpt)
 
 input_files={}
 for i in range(i_input_index):
-    input_files["input_file_{0}".format(i)] = ROOT.TFile.Open(in_dir + "/training_trees_pt"+minJetpt+"To"+maxJetpt+"_%s_%s_%i_%s.root" % (jet_type, era, i, year))
+    input_files["input_file_{0}".format(i)] = ROOT.TFile.Open(in_dir + "/training_trees_pt"+minJetpt+"To"+maxJetpt+"_%s_PFCands_%s_%i_%s.root" % (jet_type, era, i, year))
 
 #input_file = ROOT.TFile.Open(
 #    in_dir + "training_trees_pt"+minJetpt+"To"+maxJetpt+"_%s_%s.root" % (jet_type, era)
@@ -84,7 +84,7 @@ for eta_bin in eta_bins:
         PileupTrees["PileupTree_{0}".format(j)] = input_files["input_file_%i" %j].Get(eta_bin + "_Pileup")
 
     output_file = ROOT.TFile(
-        d_name +"/" + "tmva_output_Pt"+minJetpt + "To" + maxJetpt + eta_bin + "_" + jet_type +"_Grad_DNN.root",
+        d_name +"/" + "tmva_output_Pt"+minJetpt + "To" + maxJetpt + eta_bin + "_" + jet_type +"_PFCands.root",
 #        d_name +"/" + "tmva_output_Pt"+"40" + "To" + maxJetpt + eta_bin + "_" + jet_type +"GenIdx_Method.root",
         "RECREATE"
     )
@@ -118,40 +118,40 @@ for eta_bin in eta_bins:
         # --------------SET 1 For ETA < 3----------------------
         var_set1 = [
             ("PV_npvsGood"                     , "I"),
-            ("JetPuppi_puId_beta"          , "F"),
-            ("JetPuppi_puId_dR2Mean"   , "F"),
-            ("JetPuppi_puId_frac01"        , "F"),
-            ("JetPuppi_puId_frac02"        , "F"),
-            ("JetPuppi_puId_frac03"        , "F"),
-            ("JetPuppi_puId_frac04"        , "F"),
-            ("JetPuppi_puId_majW"          , "F"),
-            ("JetPuppi_puId_minW"          , "F"),
-            ("JetPuppi_puId_jetR"          , "F"),
-            ("JetPuppi_puId_jetRchg"   , "F"),
-            ("JetPuppi_nConstituents"  , "I"),
-            ("JetPuppi_puId_nCharged"  , "I"),
-            ("JetPuppi_puId_ptD"           , "F"),
-            ("JetPuppi_puId_pull"          , "F"),
+            ("JetPuppi_PFCands_beta"          , "F"),
+            ("JetPuppi_PFCands_dR2Mean"   , "F"),
+#            ("JetPuppi_PFCands_frac01"        , "F"),
+#            ("JetPuppi_PFCands_frac02"        , "F"),
+#            ("JetPuppi_PFCands_frac03"        , "F"),
+#            ("JetPuppi_PFCands_frac04"        , "F"),
+            ("JetPuppi_PFCands_majW"          , "F"),
+            ("JetPuppi_PFCands_minW"          , "F"),
+            ("JetPuppi_PFCands_jetR"          , "F"),
+            ("JetPuppi_PFCands_jetRchg"   , "F"),
+            ("JetPuppi_PFCands_nConstituents"  , "I"),
+            ("JetPuppi_PFCands_nCharged"  , "I"),
+            ("JetPuppi_PFCands_ptD"           , "F"),
+            ("JetPuppi_PFCands_pull"          , "F"),
             ("fixedGridRhoFastjetAll"          , "F"),
         ]
         
         # --------------SET 2 For ETA > 3----------------------
         var_set2 = [
             ("PV_npvsGood"          , "I"),
-            #("JetPuppi_puId_beta"         , "F"),
-            ("JetPuppi_puId_dR2Mean"   , "F"),
-            ("JetPuppi_puId_frac01"        , "F"),
-            ("JetPuppi_puId_frac02"        , "F"),
-            ("JetPuppi_puId_frac03"        , "F"),
-            ("JetPuppi_puId_frac04"        , "F"),
-            ("JetPuppi_puId_majW"          , "F"),
-            ("JetPuppi_puId_minW"          , "F"),
-            ("JetPuppi_puId_jetR"          , "F"),
-            #("JetPuppi_puId_jetRchg"  , "F"),
-            ("JetPuppi_nConstituents"  , "I"),
-            #("JetPuppi_puId_nCharged" , "I"),
-            ("JetPuppi_puId_ptD"           , "F"),
-            ("JetPuppi_puId_pull"          , "F"),
+            #("JetPuppi_PFCands_beta"         , "F"),
+            ("JetPuppi_PFCands_dR2Mean"   , "F"),
+#            ("JetPuppi_PFCands_frac01"        , "F"),
+#            ("JetPuppi_PFCands_frac02"        , "F"),
+#            ("JetPuppi_PFCands_frac03"        , "F"),
+#            ("JetPuppi_PFCands_frac04"        , "F"),
+            ("JetPuppi_PFCands_majW"          , "F"),
+            ("JetPuppi_PFCands_minW"          , "F"),
+            ("JetPuppi_PFCands_jetR"          , "F"),
+            #("JetPuppi_PFCands_jetRchg"  , "F"),
+            ("JetPuppi_PFCands_nConstituents"  , "I"),
+            #("JetPuppi_PFCands_nCharged" , "I"),
+            ("JetPuppi_PFCands_ptD"           , "F"),
+            ("JetPuppi_PFCands_pull"          , "F"),
             ("fixedGridRhoFastjetAll"          , "F"),
         ]
         spectator = [
@@ -164,40 +164,40 @@ for eta_bin in eta_bins:
         # --------------SET 1 For ETA < 3----------------------
         var_set1 = [
             ("PV_npvsGood"                     , "I"),
-            ("Jet_puId_beta"          , "F"),
-            ("Jet_puId_dR2Mean"   , "F"),
-            ("Jet_puId_frac01"        , "F"),
-            ("Jet_puId_frac02"        , "F"),
-            ("Jet_puId_frac03"        , "F"),
-            ("Jet_puId_frac04"        , "F"),
-            ("Jet_puId_majW"          , "F"),
-            ("Jet_puId_minW"          , "F"),
-            ("Jet_puId_jetR"          , "F"),
-            ("Jet_puId_jetRchg"   , "F"),
+            ("Jet_PFCands_beta"          , "F"),
+            ("Jet_PFCands_dR2Mean"   , "F"),
+            ("Jet_PFCands_frac01"        , "F"),
+            ("Jet_PFCands_frac02"        , "F"),
+            ("Jet_PFCands_frac03"        , "F"),
+            ("Jet_PFCands_frac04"        , "F"),
+            ("Jet_PFCands_majW"          , "F"),
+            ("Jet_PFCands_minW"          , "F"),
+            ("Jet_PFCands_jetR"          , "F"),
+            ("Jet_PFCands_jetRchg"   , "F"),
             ("Jet_nConstituents"  , "I"),
-            ("Jet_puId_nCharged"  , "I"),
-            ("Jet_puId_ptD"           , "F"),
-            ("Jet_puId_pull"          , "F"),
+            ("Jet_PFCands_nCharged"  , "I"),
+            ("Jet_PFCands_ptD"           , "F"),
+            ("Jet_PFCands_pull"          , "F"),
             ("fixedGridRhoFastjetAll"          , "F"),
         ]
         
         # --------------SET 2 For ETA > 3----------------------
         var_set2 = [
             ("PV_npvsGood"          , "I"),
-            #("Jet_puId_beta"         , "F"),
-            ("Jet_puId_dR2Mean"   , "F"),
-            ("Jet_puId_frac01"        , "F"),
-            ("Jet_puId_frac02"        , "F"),
-            ("Jet_puId_frac03"        , "F"),
-            ("Jet_puId_frac04"        , "F"),
-            ("Jet_puId_majW"          , "F"),
-            ("Jet_puId_minW"          , "F"),
-            ("Jet_puId_jetR"          , "F"),
-            #("Jet_puId_jetRchg"  , "F"),
+            #("Jet_PFCands_beta"         , "F"),
+            ("Jet_PFCands_dR2Mean"   , "F"),
+            ("Jet_PFCands_frac01"        , "F"),
+            ("Jet_PFCands_frac02"        , "F"),
+            ("Jet_PFCands_frac03"        , "F"),
+            ("Jet_PFCands_frac04"        , "F"),
+            ("Jet_PFCands_majW"          , "F"),
+            ("Jet_PFCands_minW"          , "F"),
+            ("Jet_PFCands_jetR"          , "F"),
+            #("Jet_PFCands_jetRchg"  , "F"),
             ("Jet_nConstituents"  , "I"),
-            #("Jet_puId_nCharged" , "I"),
-            ("Jet_puId_ptD"           , "F"),
-            ("Jet_puId_pull"          , "F"),
+            #("Jet_PFCands_nCharged" , "I"),
+            ("Jet_PFCands_ptD"           , "F"),
+            ("Jet_PFCands_pull"          , "F"),
             ("fixedGridRhoFastjetAll"          , "F"),
         ]
         spectator = [

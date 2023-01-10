@@ -1,0 +1,34 @@
+# this is comment line
+executable            = run_plotting.sh
+output                = compare_plots/std_PFCands_puId_plotting_$(ClusterId)_$(ProcId)
+error                 = compare_plots/std_PFCands_puId_plotting_$(ClusterId)_$(ProcId)
+log                   = compare_plots/log_PFCands_puId_plotting_$(ClusterId)_$(ProcId)
+GetEnv                = True
+Universe              = vanilla
+
+
+
+transfer_input_files  = plot_input_variables_puppi_puId_PFCands.py,
+transfer_output_files = compare_plots,
+request_memory = 32 GB 
+
+arguments             = $(eta_bin_s) $(eta_bin_f)
+
++JobFlavour           = "workday"
+
+eta_bin_s               = Eta0p0To2p5
+eta_bin_f               = [0.0,2.5]
+queue
+
+eta_bin_s               = Eta2p5To2p75
+eta_bin_f               = [2.5,2.75]
+queue
+
+eta_bin_s               = Eta2p75To3p0
+eta_bin_f               = [2.75,3.0]
+queue
+
+eta_bin_s               = Eta3p0To5p0
+eta_bin_f               = [3.0,5.0]
+queue
+

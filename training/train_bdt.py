@@ -131,7 +131,7 @@ for eta_bin in eta_bins:
     loader.AddTree(PileupTree, "Background")
     
     loader.PrepareTrainingAndTestTree(
-        ROOT.TCut(''),
+        ROOT.TCut("jetPt>40"),ROOT.TCut("jetPt>40"),
         "SplitMode=Random:NormMode=NumEvents:!V:"
         + "nTrain_Signal=%d:nTest_Signal=%d:" % (N, N)
         + "nTrain_Background=%d:nTest_Background=%d:" % (N, N)

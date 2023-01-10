@@ -1,5 +1,5 @@
 # this is comment line
-executable            = run_train_bdt.sh
+executable            = run_train_bdt_PFCands.sh
 output                = output/std_train_bdt_$(ClusterId)_$(ProcId)
 error                 = output/std_train_bdt_$(ClusterId)_$(ProcId)
 log                   = output/log_train_bdt_$(ClusterId)_$(ProcId)
@@ -8,7 +8,7 @@ Universe              = vanilla
 
 
 
-transfer_input_files  = train_bdt_test.py,
+transfer_input_files  = train_bdt_PFCands.py,
 transfer_output_files = output,
 request_memory = 32 GB 
 #arguments            = 106X 500000 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/2016APV $(eta_bin) 10 100 17 2016APV
@@ -77,7 +77,7 @@ request_memory = 32 GB
 #eta_bin               = Eta3p0To5p0
 #queue
 
-arguments            = 106X 500000 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/puppi_2018_GenJetIdx $(eta_bin) 10 100 17 2018
+arguments            = 106X 500000 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/puppi_2018_GenJetIdx_PFCands_input $(eta_bin) 10 100 17 2018
 
 
 +JobFlavour           = "workday"

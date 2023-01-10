@@ -40,22 +40,13 @@ cd -
 
 echo "Setting Env"
 
-export era=$1
-export max_N=$2
-export jet_type=$3
-export in_dir=$4
-export year=$9
-export d_name="BDT_${jet_type}_${era}_${year}"
-export eta_bin=$5
-export minJetpt=$6
-export maxJetpt=$7
-export input_index=$8
-mkdir -p output
-cd output
+export eta_s=$1
+export eta_f=$2
 
-mkdir -p $d_name
+mkdir -p compare_plots
+cd compare_plots
+mkdir -p $eta_s
 
-chmod +x /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/train_bdt_test.py
-/u/user/shin/scratch/training_code/PUJetId_training_plotting/training/train_bdt_test.py --era $era --max_N $max_N --jet_type $jet_type --in_dir $in_dir  --d_name  $d_name --eta_bins $eta_bin --minJet_pt $minJetpt --maxJet_pt $maxJetpt --input_index $input_index --year $year
-
+chmod +x /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/plot_input_variables_puppi_puId_PFCands.py
+/u/user/shin/scratch/training_code/PUJetId_training_plotting/training/plot_input_variables_puppi_puId_PFCands.py --eta_s $eta_s --eta_f $eta_f
 cd ..

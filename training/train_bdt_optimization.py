@@ -42,6 +42,9 @@ parser.add_argument(
 parser.add_argument(
     "--year", type=str, default="", help="year of dataset"
     )
+parser.add_argument(
+    "--NTrees", type=str, default="", help="Number of Trees for BDT training (Optimizing purpose)"
+    )
 
 args = parser.parse_args()
 
@@ -58,6 +61,7 @@ minJetpt=args.minJet_pt
 maxJetpt=args.maxJet_pt
 f_minJetpt=float(minJetpt)
 f_maxJetpt=float(maxJetpt)
+NTrees=args.NTrees
 
 
 input_files={}
@@ -84,21 +88,12 @@ for eta_bin in eta_bins:
         PileupTrees["PileupTree_{0}".format(j)] = input_files["input_file_%i" %j].Get(eta_bin + "_Pileup")
 
     output_file = ROOT.TFile(
-        d_name +"/" + "tmva_output_Pt"+minJetpt + "To" + maxJetpt + eta_bin + "_" + jet_type +"_Grad_DNN.root",
-#        d_name +"/" + "tmva_output_Pt"+"40" + "To" + maxJetpt + eta_bin + "_" + jet_type +"GenIdx_Method.root",
+        d_name +"/" + "tmva_output_Pt"+minJetpt + "To" + maxJetpt + eta_bin + "_" + jet_type + "_NTrees_" + NTrees +".root",
         "RECREATE"
     )
     N_Prompt=0
     N_Pileup=0
     for l in range(i_input_index):
-#        for a in range(PromptTrees["PromptTree_%i" %l].GetEntries()):
-#            PromptTrees["PromptTree_%i" %l].GetEntry(a)
-#            if getattr(PromptTrees["PromptTree_%i" %l],"JetPuppi_pt") >40:
-#                N_Prompt+=1
-#        for b in range(PileupTrees["PileupTree_%i" %l].GetEntries()):
-#            PileupTrees["PileupTree_%i" %l].GetEntry(b)
-#            if getattr(PileupTrees["PileupTree_%i" %l],"JetPuppi_pt") >40:
-#                N_Pileup+=1
         N_Prompt=N_Prompt+PromptTrees["PromptTree_%i" %l].GetEntries()
         N_Pileup=N_Pileup+PileupTrees["PileupTree_%i" %l].GetEntries()
     print("number of Prompt Jet (%s, %s): %i" %(year, eta_bin, int(N_Prompt)))
@@ -228,16 +223,16 @@ for eta_bin in eta_bins:
             loader.AddTree(PromptTrees["PromptTree_%i" %k], "Signal")
         if N_Pileup !=0:
             loader.AddTree(PileupTrees["PileupTree_%i" %k], "Background")
-#    cuts=ROOT.TCut("JetPuppi_pt>40")
-#    cutb=ROOT.TCut("JetPuppi_pt>40")
-#    loader.PrepareTrainingAndTestTree(cuts,cutb, "SplitMode=Random:NormMode=NumEvents:!V:nTrain_Signal=%d:nTest_Signal=%d:nTrain_Background=%d:nTest_Background=%d:" %(N, N, N, N))
-    loader.PrepareTrainingAndTestTree(ROOT.TCut(''),"SplitMode=Random:NormMode=NumEvents:!V:nTrain_Signal=%d:nTest_Signal=%d:nTrain_Background=%d:nTest_Background=%d:" %(N, N, N, N))
+    
+    loader.PrepareTrainingAndTestTree(
+        ROOT.TCut(''),
+        "SplitMode=Random:NormMode=NumEvents:!V:"
+        + "nTrain_Signal=%d:nTest_Signal=%d:" % (N, N)
+        + "nTrain_Background=%d:nTest_Background=%d:" % (N, N)
+    )
     
     #-------------------------------------------------------------------
-#    factory.BookMethod(loader,ROOT.TMVA.Types.kBDT,"BDT","!H:!V:NTrees=500:BoostType=AdaBoost:Shrinkage=0.1:nCuts=20:DoBoostMonitor")
-    factory.BookMethod(loader,ROOT.TMVA.Types.kBDT,"BDTG","!H:!V:NTrees=500:BoostType=Grad:Shrinkage=0.1:nCuts=20:DoBoostMonitor")
-#    factory.BookMethod(loader,ROOT.TMVA.Types.kBDT,"BDTB","!H:!V:NTrees=500:BoostType=Bagging:Shrinkage=0.1:nCuts=20:DoBoostMonitor")
-#    factory.BookMethod(loader,ROOT.TMVA.Types.kDL,"DNN","!H:V:ErrorStrategy=CROSSENTROPY:Layout=TANH|128,TANH|128,TANH|128,LINEAR:TrainingStrategy=LearningRate=1e-1,Momentum=0.9,Optimizer=ADAM,BatchSize=256:Architecture=CPU")
+    factory.BookMethod(loader,ROOT.TMVA.Types.kBDT,"BDT","!H:!V:NTrees=%s:BoostType=Grad:Shrinkage=0.1:DoBoostMonitor" %NTrees)
     factory.TrainAllMethods()
     factory.TestAllMethods()
     factory.EvaluateAllMethods()

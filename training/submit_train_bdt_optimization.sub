@@ -1,0 +1,266 @@
+# this is comment line
+executable            = run_train_bdt_optimization.sh
+output                = output/std_train_bdt_$(eta_bin)_$(NTrees)
+error                 = output/std_train_bdt_$(eta_bin)_$(NTrees)
+log                   = output/log_train_bdt_$(eta_bin)_$(NTrees)
+GetEnv                = True
+Universe              = vanilla
+
+
+
+transfer_input_files  = train_bdt_optimization.py,
+transfer_output_files = output,
+request_memory = 32 GB 
+
+arguments            = 106X 500000 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/2018 $(eta_bin) 10 100 17 2018 $(NTrees)
+
+
++JobFlavour           = "workday"
+
+eta_bin               = Eta0p0To2p5
+NTrees                = 50
+queue
+
+NTrees                = 100
+queue
+
+NTrees                = 150
+queue
+
+NTrees                = 200
+queue
+
+NTrees                = 250
+queue
+
+NTrees                = 300
+queue
+
+NTrees                = 350
+queue
+
+NTrees                = 400
+queue
+
+NTrees                = 450
+queue
+
+NTrees                = 500
+queue
+
+NTrees                = 550
+queue
+
+NTrees                = 600
+queue
+
+NTrees                = 650
+queue
+
+NTrees                = 700
+queue
+
+NTrees                = 750
+queue
+
+NTrees                = 800
+queue
+
+NTrees                = 850
+queue
+
+NTrees                = 900
+queue
+
+NTrees                = 950
+queue
+
+NTrees                = 1000
+queue
+
+eta_bin               = Eta2p5To2p75
+NTrees                = 50
+queue
+
+NTrees                = 100
+queue
+
+NTrees                = 150
+queue
+
+NTrees                = 200
+queue
+
+NTrees                = 250
+queue
+
+NTrees                = 300
+queue
+
+NTrees                = 350
+queue
+
+NTrees                = 400
+queue
+
+NTrees                = 450
+queue
+
+NTrees                = 500
+queue
+
+NTrees                = 550
+queue
+
+NTrees                = 600
+queue
+
+NTrees                = 650
+queue
+
+NTrees                = 700
+queue
+
+NTrees                = 750
+queue
+
+NTrees                = 800
+queue
+
+NTrees                = 850
+queue
+
+NTrees                = 900
+queue
+
+NTrees                = 950
+queue
+
+NTrees                = 1000
+queue
+
+
+eta_bin               = Eta2p75To3p0
+NTrees                = 50
+queue
+
+NTrees                = 100
+queue
+
+NTrees                = 150
+queue
+
+NTrees                = 200
+queue
+
+NTrees                = 250
+queue
+
+NTrees                = 300
+queue
+
+NTrees                = 350
+queue
+
+NTrees                = 400
+queue
+
+NTrees                = 450
+queue
+
+NTrees                = 500
+queue
+
+NTrees                = 550
+queue
+
+NTrees                = 600
+queue
+
+NTrees                = 650
+queue
+
+NTrees                = 700
+queue
+
+NTrees                = 750
+queue
+
+NTrees                = 800
+queue
+
+NTrees                = 850
+queue
+
+NTrees                = 900
+queue
+
+NTrees                = 950
+queue
+
+NTrees                = 1000
+queue
+
+
+eta_bin               = Eta3p0To5p0
+NTrees                = 50
+queue
+
+NTrees                = 100
+queue
+
+NTrees                = 150
+queue
+
+NTrees                = 200
+queue
+
+NTrees                = 250
+queue
+
+NTrees                = 300
+queue
+
+NTrees                = 350
+queue
+
+NTrees                = 400
+queue
+
+NTrees                = 450
+queue
+
+NTrees                = 500
+queue
+
+NTrees                = 550
+queue
+
+NTrees                = 600
+queue
+
+NTrees                = 650
+queue
+
+NTrees                = 700
+queue
+
+NTrees                = 750
+queue
+
+NTrees                = 800
+queue
+
+NTrees                = 850
+queue
+
+NTrees                = 900
+queue
+
+NTrees                = 950
+queue
+
+NTrees                = 1000
+queue
+
+
