@@ -102,46 +102,46 @@ PFCands_dR_len = 1
 Lead_puppiweight_length = 1
 #PV_npvsGood                              = NTrees*[0]
 fixedGridRhoFastjetAll                   = NTrees*[0]
-JetPuppi_pt                              = NTrees*[0]
-JetPuppi_eta                             = NTrees*[0]
-JetPuppi_puId_dR2Mean                    = NTrees*[0]
-JetPuppi_puId_majW                       = NTrees*[0]
-JetPuppi_puId_minW                       = NTrees*[0]
-JetPuppi_puId_frac01                     = NTrees*[0]
-JetPuppi_puId_frac02                     = NTrees*[0]
-JetPuppi_puId_frac03                     = NTrees*[0]
-JetPuppi_puId_frac04                     = NTrees*[0]
-JetPuppi_puId_ptD                        = NTrees*[0]
-JetPuppi_puId_beta                       = NTrees*[0]
-JetPuppi_puId_pull                       = NTrees*[0]
-JetPuppi_puId_jetR                       = NTrees*[0]
-JetPuppi_PFCands_jetR                    = NTrees*[0]
-JetPuppi_puId_jetRchg                    = NTrees*[0]
-JetPuppi_PFCands_jetRchg                 = NTrees*[0]
-JetPuppi_nConstituents                   = NTrees*[0]
-JetPuppi_PFCands_nConstituents           = NTrees*[0]
-JetPuppi_puId_nCharged                   = NTrees*[0]
-JetPuppi_PFCands_nCharged                = NTrees*[0]
-JetPuppi_dRMatch                         = NTrees*[0]
-JetPuppi_genJetIdx                       = NTrees*[0]
-JetPuppi_partonFlavour                   = NTrees*[0]
+Jet_pt                              = NTrees*[0]
+Jet_eta                             = NTrees*[0]
+Jet_puId_dR2Mean                    = NTrees*[0]
+Jet_puId_majW                       = NTrees*[0]
+Jet_puId_minW                       = NTrees*[0]
+Jet_puId_frac01                     = NTrees*[0]
+Jet_puId_frac02                     = NTrees*[0]
+Jet_puId_frac03                     = NTrees*[0]
+Jet_puId_frac04                     = NTrees*[0]
+Jet_puId_ptD                        = NTrees*[0]
+Jet_puId_beta                       = NTrees*[0]
+Jet_puId_pull                       = NTrees*[0]
+Jet_puId_jetR                       = NTrees*[0]
+Jet_PFCands_jetR                    = NTrees*[0]
+Jet_puId_jetRchg                    = NTrees*[0]
+Jet_PFCands_jetRchg                 = NTrees*[0]
+Jet_nConstituents                   = NTrees*[0]
+Jet_PFCands_nConstituents           = NTrees*[0]
+Jet_puId_nCharged                   = NTrees*[0]
+Jet_PFCands_nCharged                = NTrees*[0]
+Jet_dRMatch                         = NTrees*[0]
+Jet_genJetIdx                       = NTrees*[0]
+Jet_partonFlavour                   = NTrees*[0]
 Zpt_Jetpt                                = NTrees*[0]
 dphi_zj                                  = NTrees*[0]
-Lead_JetPuppi_PFCands_puppiWeight        = NTrees*[0]
-Lead_JetPuppi_PFCands_puppiWeightNoLep   = NTrees*[0]
-JetPuppi_PFCands_dR                      = NTrees*[0]
-JetPuppi_PFCands_puppiWeight             = NTrees*[0]
-JetPuppi_PFCands_puppiWeightNoLep        = NTrees*[0]
-JetPuppi_PFCands_dR2Mean                 = NTrees*[0]
-JetPuppi_PFCands_majW                    = NTrees*[0]
-JetPuppi_PFCands_minW                    = NTrees*[0]
-JetPuppi_PFCands_frac01                  = NTrees*[0]
-JetPuppi_PFCands_frac02                  = NTrees*[0]
-JetPuppi_PFCands_frac03                  = NTrees*[0]
-JetPuppi_PFCands_frac04                  = NTrees*[0]
-JetPuppi_PFCands_ptD                     = NTrees*[0]
-JetPuppi_PFCands_beta                    = NTrees*[0]
-JetPuppi_PFCands_pull                    = NTrees*[0]
+Lead_Jet_PFCands_puppiWeight        = NTrees*[0]
+Lead_Jet_PFCands_puppiWeightNoLep   = NTrees*[0]
+Jet_PFCands_dR                      = NTrees*[0]
+Jet_PFCands_puppiWeight             = NTrees*[0]
+Jet_PFCands_puppiWeightNoLep        = NTrees*[0]
+Jet_PFCands_dR2Mean                 = NTrees*[0]
+Jet_PFCands_majW                    = NTrees*[0]
+Jet_PFCands_minW                    = NTrees*[0]
+Jet_PFCands_frac01                  = NTrees*[0]
+Jet_PFCands_frac02                  = NTrees*[0]
+Jet_PFCands_frac03                  = NTrees*[0]
+Jet_PFCands_frac04                  = NTrees*[0]
+Jet_PFCands_ptD                     = NTrees*[0]
+Jet_PFCands_beta                    = NTrees*[0]
+Jet_PFCands_pull                    = NTrees*[0]
 
 
 
@@ -151,51 +151,51 @@ JetPuppi_PFCands_pull                    = NTrees*[0]
 for i, outTree in enumerate(outTrees):
 #    PV_npvsGood                                   [i] = book_int_branch  (outTree, "PV_npvsGood"                  )
     fixedGridRhoFastjetAll                        [i] = book_float_branch(outTree, "fixedGridRhoFastjetAll"       )
-    JetPuppi_pt                                   [i] = book_float_branch(outTree, "JetPuppi_pt"                  )
-    JetPuppi_eta                                  [i] = book_float_branch(outTree, "JetPuppi_eta"                 )
-    JetPuppi_puId_dR2Mean                         [i] = book_float_branch(outTree, "JetPuppi_puId_dR2Mean"        )
-    JetPuppi_puId_majW                            [i] = book_float_branch(outTree, "JetPuppi_puId_majW"           )
-    JetPuppi_puId_minW                            [i] = book_float_branch(outTree, "JetPuppi_puId_minW"           )
-    JetPuppi_puId_frac01                          [i] = book_float_branch(outTree, "JetPuppi_puId_frac01"         )
-    JetPuppi_puId_frac02                          [i] = book_float_branch(outTree, "JetPuppi_puId_frac02"         )
-    JetPuppi_puId_frac03                          [i] = book_float_branch(outTree, "JetPuppi_puId_frac03"         )
-    JetPuppi_puId_frac04                          [i] = book_float_branch(outTree, "JetPuppi_puId_frac04"         )
-    JetPuppi_puId_ptD                             [i] = book_float_branch(outTree, "JetPuppi_puId_ptD"            )
-    JetPuppi_puId_beta                            [i] = book_float_branch(outTree, "JetPuppi_puId_beta"           )
-    JetPuppi_puId_pull                            [i] = book_float_branch(outTree, "JetPuppi_puId_pull"           )
-    JetPuppi_puId_jetR                            [i] = book_float_branch(outTree, "JetPuppi_puId_jetR"           )
-    JetPuppi_puId_jetRchg                         [i] = book_float_branch(outTree, "JetPuppi_puId_jetRchg"        )
-    JetPuppi_nConstituents                        [i] = book_int_branch  (outTree, "JetPuppi_nConstituents"  )
-    JetPuppi_puId_nCharged                        [i] = book_int_branch  (outTree, "JetPuppi_puId_nCharged"       )
-    JetPuppi_PFCands_jetR                         [i] = book_float_branch(outTree, "JetPuppi_PFCands_jetR"           )
-    JetPuppi_PFCands_jetRchg                      [i] = book_float_branch(outTree, "JetPuppi_PFCands_jetRchg"        )
-    JetPuppi_PFCands_nConstituents                [i] = book_int_branch  (outTree, "JetPuppi_PFCands_nConstituents"  )
-    JetPuppi_PFCands_nCharged                     [i] = book_int_branch  (outTree, "JetPuppi_PFCands_nCharged"       )
-    JetPuppi_dRMatch                              [i] = book_float_branch(outTree, "JetPuppi_dRMatch"             )
-    JetPuppi_genJetIdx                            [i] = book_int_branch  (outTree, "JetPuppi_genJetIdx"           )
-    JetPuppi_partonFlavour                        [i] = book_int_branch  (outTree, "JetPuppi_partonFlavour"       )
+    Jet_pt                                   [i] = book_float_branch(outTree, "Jet_pt"                  )
+    Jet_eta                                  [i] = book_float_branch(outTree, "Jet_eta"                 )
+    Jet_puId_dR2Mean                         [i] = book_float_branch(outTree, "Jet_puId_dR2Mean"        )
+    Jet_puId_majW                            [i] = book_float_branch(outTree, "Jet_puId_majW"           )
+    Jet_puId_minW                            [i] = book_float_branch(outTree, "Jet_puId_minW"           )
+    Jet_puId_frac01                          [i] = book_float_branch(outTree, "Jet_puId_frac01"         )
+    Jet_puId_frac02                          [i] = book_float_branch(outTree, "Jet_puId_frac02"         )
+    Jet_puId_frac03                          [i] = book_float_branch(outTree, "Jet_puId_frac03"         )
+    Jet_puId_frac04                          [i] = book_float_branch(outTree, "Jet_puId_frac04"         )
+    Jet_puId_ptD                             [i] = book_float_branch(outTree, "Jet_puId_ptD"            )
+    Jet_puId_beta                            [i] = book_float_branch(outTree, "Jet_puId_beta"           )
+    Jet_puId_pull                            [i] = book_float_branch(outTree, "Jet_puId_pull"           )
+    Jet_puId_jetR                            [i] = book_float_branch(outTree, "Jet_puId_jetR"           )
+    Jet_puId_jetRchg                         [i] = book_float_branch(outTree, "Jet_puId_jetRchg"        )
+    Jet_nConstituents                        [i] = book_int_branch  (outTree, "Jet_nConstituents"  )
+    Jet_puId_nCharged                        [i] = book_int_branch  (outTree, "Jet_puId_nCharged"       )
+    Jet_PFCands_jetR                         [i] = book_float_branch(outTree, "Jet_PFCands_jetR"           )
+    Jet_PFCands_jetRchg                      [i] = book_float_branch(outTree, "Jet_PFCands_jetRchg"        )
+    Jet_PFCands_nConstituents                [i] = book_int_branch  (outTree, "Jet_PFCands_nConstituents"  )
+    Jet_PFCands_nCharged                     [i] = book_int_branch  (outTree, "Jet_PFCands_nCharged"       )
+    Jet_dRMatch                              [i] = book_float_branch(outTree, "Jet_dRMatch"             )
+    Jet_genJetIdx                            [i] = book_int_branch  (outTree, "Jet_genJetIdx"           )
+    Jet_partonFlavour                        [i] = book_int_branch  (outTree, "Jet_partonFlavour"       )
     Zpt_Jetpt                                     [i] = book_float_branch  (outTree, "Zpt_Jetpt"                    )
     dphi_zj                                       [i] = book_float_branch  (outTree, "dphi_zj"                    )
-    JetPuppi_PFCands_dR2Mean                         [i] = book_float_branch(outTree, "JetPuppi_PFCands_dR2Mean"        )
-    JetPuppi_PFCands_majW                            [i] = book_float_branch(outTree, "JetPuppi_PFCands_majW"           )
-    JetPuppi_PFCands_minW                            [i] = book_float_branch(outTree, "JetPuppi_PFCands_minW"           )
-    JetPuppi_PFCands_frac01                          [i] = book_float_branch(outTree, "JetPuppi_PFCands_frac01"         )
-    JetPuppi_PFCands_frac02                          [i] = book_float_branch(outTree, "JetPuppi_PFCands_frac02"         )
-    JetPuppi_PFCands_frac03                          [i] = book_float_branch(outTree, "JetPuppi_PFCands_frac03"         )
-    JetPuppi_PFCands_frac04                          [i] = book_float_branch(outTree, "JetPuppi_PFCands_frac04"         )
-    JetPuppi_PFCands_ptD                             [i] = book_float_branch(outTree, "JetPuppi_PFCands_ptD"            )
-    JetPuppi_PFCands_beta                            [i] = book_float_branch(outTree, "JetPuppi_PFCands_beta"           )
-    JetPuppi_PFCands_pull                            [i] = book_float_branch(outTree, "JetPuppi_PFCands_pull"           )
+    Jet_PFCands_dR2Mean                         [i] = book_float_branch(outTree, "Jet_PFCands_dR2Mean"        )
+    Jet_PFCands_majW                            [i] = book_float_branch(outTree, "Jet_PFCands_majW"           )
+    Jet_PFCands_minW                            [i] = book_float_branch(outTree, "Jet_PFCands_minW"           )
+    Jet_PFCands_frac01                          [i] = book_float_branch(outTree, "Jet_PFCands_frac01"         )
+    Jet_PFCands_frac02                          [i] = book_float_branch(outTree, "Jet_PFCands_frac02"         )
+    Jet_PFCands_frac03                          [i] = book_float_branch(outTree, "Jet_PFCands_frac03"         )
+    Jet_PFCands_frac04                          [i] = book_float_branch(outTree, "Jet_PFCands_frac04"         )
+    Jet_PFCands_ptD                             [i] = book_float_branch(outTree, "Jet_PFCands_ptD"            )
+    Jet_PFCands_beta                            [i] = book_float_branch(outTree, "Jet_PFCands_beta"           )
+    Jet_PFCands_pull                            [i] = book_float_branch(outTree, "Jet_PFCands_pull"           )
 
 for i, PFCandsTree in enumerate(PFCandsTrees):
-    JetPuppi_PFCands_dR                           [i] = book_float_branch  (PFCandsTree, "JetPuppi_PFCands_dR" )
-    JetPuppi_PFCands_puppiWeight                  [i] = book_float_branch  (PFCandsTree, "JetPuppi_PFCands_puppiWeight" )
-    JetPuppi_PFCands_puppiWeightNoLep             [i] = book_float_branch  (PFCandsTree, "JetPuppi_PFCands_puppiWeightNoLep" )
+    Jet_PFCands_dR                           [i] = book_float_branch  (PFCandsTree, "Jet_PFCands_dR" )
+    Jet_PFCands_puppiWeight                  [i] = book_float_branch  (PFCandsTree, "Jet_PFCands_puppiWeight" )
+    Jet_PFCands_puppiWeightNoLep             [i] = book_float_branch  (PFCandsTree, "Jet_PFCands_puppiWeightNoLep" )
 
 
 for i, LeadJetTree in enumerate(LeadJetTrees):
-    Lead_JetPuppi_PFCands_puppiWeight             [i] = book_float_branch  (LeadJetTree, "Lead_JetPuppi_PFCands_puppiWeight")
-    Lead_JetPuppi_PFCands_puppiWeightNoLep        [i] = book_float_branch  (LeadJetTree, "Lead_JetPuppi_PFCands_puppiWeightNoLep")
+    Lead_Jet_PFCands_puppiWeight             [i] = book_float_branch  (LeadJetTree, "Lead_Jet_PFCands_puppiWeight")
+    Lead_Jet_PFCands_puppiWeightNoLep        [i] = book_float_branch  (LeadJetTree, "Lead_Jet_PFCands_puppiWeightNoLep")
 
 
 
@@ -255,7 +255,7 @@ for ievent, event in enumerate(tChain):
 
     nLeptons = event.nMuon
 ######require exactly 2 leptons and at least 1 jet to start ################
-    if nLeptons != 2 or event.nJetPuppi<1: continue
+    if nLeptons != 2 or event.nJet<1: continue
 
     good_lep = ROOT.TLorentzVector()
     good_leps = 0
@@ -289,7 +289,7 @@ for ievent, event in enumerate(tChain):
 #################################jet selection#########################    
     lead_jet_idx = -1
     lead_jet_pt = 0    
-    for j in range(event.nJetPuppi):
+    for j in range(event.nJet):
         clean_jet = True
         good_jet = ROOT.TLorentzVector()
 
@@ -303,8 +303,8 @@ for ievent, event in enumerate(tChain):
 
 #        print("Jet number %i" %j)
 #############tight jet ID, jet pt cut, jet eta cut ########################
-        if event.JetPuppi_jetId[j]!=2 and event.JetPuppi_pt[j] <= 10 and abs(event.JetPuppi_eta[j]) > 5: continue
-        good_jet.SetPtEtaPhiM(event.JetPuppi_pt[j], event.JetPuppi_eta[j],event.JetPuppi_phi[j],event.JetPuppi_mass[j])
+        if event.Jet_jetId[j]!=2 and event.Jet_pt[j] <= 10 and abs(event.Jet_eta[j]) > 5: continue
+        good_jet.SetPtEtaPhiM(event.Jet_pt[j], event.Jet_eta[j],event.Jet_phi[j],event.Jet_mass[j])
         base_jet += 1
 #############Cross Clean Jet and make sure that muon is not near the jet###############
         for lep_index in range(nLeptons): 
@@ -316,7 +316,7 @@ for ievent, event in enumerate(tChain):
             good_jets=good_jets+1
             good_jet_index.append(j)
 
-        temp_jet_pt=event.JetPuppi_pt[j]
+        temp_jet_pt=event.Jet_pt[j]
         if temp_jet_pt>lead_jet_pt:
             lead_jet_pt = temp_jet_pt
             lead_jet_idx = j
@@ -330,12 +330,12 @@ for ievent, event in enumerate(tChain):
 
     lead_jet_PFCandsIdx=[]
 
-    Lead_JetPuppi_PFCands_puppiWeight_list = []
-    Lead_JetPuppi_PFCands_puppiWeightNoLep_list = []
-    for l, PFCands_jetidx in enumerate(event.JetPuppiPFCands_jetIdx):
+    Lead_Jet_PFCands_puppiWeight_list = []
+    Lead_Jet_PFCands_puppiWeightNoLep_list = []
+    for l, PFCands_jetidx in enumerate(event.JetPFCands_jetIdx):
         if PFCands_jetidx == lead_jet_idx:
-            Lead_JetPuppi_PFCands_puppiWeight_list.append(event.PFCands_puppiWeight[event.JetPuppiPFCands_pFCandsIdx[l]])
-            Lead_JetPuppi_PFCands_puppiWeightNoLep_list.append(event.PFCands_puppiWeightNoLep[event.JetPuppiPFCands_pFCandsIdx[l]])
+            Lead_Jet_PFCands_puppiWeight_list.append(event.PFCands_puppiWeight[event.JetPFCands_pFCandsIdx[l]])
+            Lead_Jet_PFCands_puppiWeightNoLep_list.append(event.PFCands_puppiWeightNoLep[event.JetPFCands_pFCandsIdx[l]])
 
 
 
@@ -343,9 +343,9 @@ for ievent, event in enumerate(tChain):
 
 
     for k in good_jet_index:
-#        if ord(event.JetPuppi_nConstituents[k]) != 1: continue
-        if event.JetPuppi_genJetIdx[k] >= 0 and event.JetPuppi_genJetIdx[k] < event.nGenJet:
-            matched_genjet_idx.append(event.JetPuppi_genJetIdx[k])
+#        if ord(event.Jet_nConstituents[k]) != 1: continue
+        if event.Jet_genJetIdx[k] >= 0 and event.Jet_genJetIdx[k] < event.nGenJet:
+            matched_genjet_idx.append(event.Jet_genJetIdx[k])
 
 
 #    for m in range(event.nGenJet):
@@ -353,20 +353,20 @@ for ievent, event in enumerate(tChain):
 #        Pileup_GenJet_idx.append(m)
 #    for k in good_jet_index:
 #        PU_dR=10000
-#        if event.JetPuppi_genJetIdx[k] > 0: continue
+#        if event.Jet_genJetIdx[k] > 0: continue
 #        for m in Pileup_GenJet_idx:
-#            temp_PU_dR=((event.JetPuppi_eta[k]-event.GenJet_eta[m])**2+dphi(event.JetPuppi_phi[k],event.GenJet_phi[m])**2)**0.5
+#            temp_PU_dR=((event.Jet_eta[k]-event.GenJet_eta[m])**2+dphi(event.Jet_phi[k],event.GenJet_phi[m])**2)**0.5
                
             
             
     
 
-        GenJetIdx= event.JetPuppi_genJetIdx[k]
-        raw_pt_  = event.JetPuppi_pt_raw[k]
-        pt_      = event.JetPuppi_pt[k]
-        eta_     = event.JetPuppi_eta[k]
-        phi_     = event.JetPuppi_phi[k]
-        flavor_  = event.JetPuppi_partonFlavour[k]
+        GenJetIdx= event.Jet_genJetIdx[k]
+#        raw_pt_  = event.JetPuppi_pt_raw[k]
+        pt_      = event.Jet_pt[k]
+        eta_     = event.Jet_eta[k]
+        phi_     = event.Jet_phi[k]
+        flavor_  = event.Jet_partonFlavour[k]
         dRMatch_ = 10
         temp_dphi_zj = dphi(phi_,Z_cand.Phi())
         if GenJetIdx < event.nGenJet and GenJetIdx >= 0:
@@ -380,8 +380,8 @@ for ievent, event in enumerate(tChain):
 
 
         #Jet pt upper and lower bound condition
-#        if event.JetPuppi_pt[k] > f_maxJetpt or event.JetPuppi_pt[k] < f_minJetpt or Gen_index == -1: continue
-        if event.JetPuppi_pt[k] > f_maxJetpt or event.JetPuppi_pt[k] < f_minJetpt: continue
+#        if event.Jet_pt[k] > f_maxJetpt or event.Jet_pt[k] < f_minJetpt or Gen_index == -1: continue
+        if event.Jet_pt[k] > f_maxJetpt or event.Jet_pt[k] < f_minJetpt: continue
 ################################### Variable from PFCands ########################        
         PFCands_nCharged = 0
         PFCands_nConstituents = 0
@@ -420,9 +420,9 @@ for ievent, event in enumerate(tChain):
 
 
 
-        for m,p in enumerate(event.JetPuppiPFCands_jetIdx):
+        for m,p in enumerate(event.JetPFCands_jetIdx):
             if p == k:
-                temp_PFCandsIdx=event.JetPuppiPFCands_pFCandsIdx[m]
+                temp_PFCandsIdx=event.JetPFCands_pFCandsIdx[m]
 
 
                 sum_PFCands_pt += event.PFCands_pt[temp_PFCandsIdx] 
@@ -472,9 +472,9 @@ for ievent, event in enumerate(tChain):
         if sum_weighted_pt2 > 0:
             avg_deta = sum_deta / sum_weighted_pt2
             avg_dphi = sum_dphi / sum_weighted_pt2
-        for m,p in enumerate(event.JetPuppiPFCands_jetIdx):
+        for m,p in enumerate(event.JetPFCands_jetIdx):
             if p == k:
-                temp_PFCandsIdx=event.JetPuppiPFCands_pFCandsIdx[m]
+                temp_PFCandsIdx=event.JetPFCands_pFCandsIdx[m]
                 temp_PFCands_pt = event.PFCands_pt[temp_PFCandsIdx]
                 temp_PFCands_Deta = event.PFCands_eta[temp_PFCandsIdx]-eta_
                 temp_PFCands_Dphi = dphi(event.PFCands_phi[temp_PFCandsIdx],phi_)
@@ -499,7 +499,7 @@ for ievent, event in enumerate(tChain):
         PFCands_jetR = PFCands_lead_pt/sum_PFCands_pt
         PFCands_jetRchg = PFCands_lead_chg_pt/sum_PFCands_pt
         
-        Lead_puppiweight_length = len(Lead_JetPuppi_PFCands_puppiWeight_list)
+        Lead_puppiweight_length = len(Lead_Jet_PFCands_puppiWeight_list)
         PFCands_dR2Mean /= sum_PFCands_pt2
 
         covMatrix = covMatrix / sum_PFCands_pt2
@@ -513,8 +513,8 @@ for ievent, event in enumerate(tChain):
             PFCands_majW = abs(eig_val[1])**0.5
             PFCands_minW = abs(eig_val[0])**0.5 
 
-        PFCands_fracs = PFCands_fracs / raw_pt_
-#        PFCands_fracs = PFCands_fracs / sum_PFCands_pt
+#        PFCands_fracs = PFCands_fracs / raw_pt_
+        PFCands_fracs = PFCands_fracs / sum_PFCands_pt
         
         PFCands_ptD = ((sum_PFCands_pt2)**0.5)/sum_PFCands_pt
         if (sum_charged_pt != 0):
@@ -560,53 +560,53 @@ for ievent, event in enumerate(tChain):
 
 #        PV_npvsGood                        [key][0] = event.PV_npvsGood
         fixedGridRhoFastjetAll             [key][0] = event.fixedGridRhoFastjetAll
-        JetPuppi_pt                        [key][0] = event.JetPuppi_pt[k]
-        JetPuppi_eta                       [key][0] = event.JetPuppi_eta[k]
-        JetPuppi_puId_dR2Mean              [key][0] = event.JetPuppi_puId_dR2Mean[k]
-        JetPuppi_puId_majW                 [key][0] = event.JetPuppi_puId_majW[k]
-        JetPuppi_puId_minW                 [key][0] = event.JetPuppi_puId_minW[k]
-        JetPuppi_puId_frac01               [key][0] = event.JetPuppi_puId_frac01[k]
-        JetPuppi_puId_frac02               [key][0] = event.JetPuppi_puId_frac02[k]
-        JetPuppi_puId_frac03               [key][0] = event.JetPuppi_puId_frac03[k]
-        JetPuppi_puId_frac04               [key][0] = event.JetPuppi_puId_frac04[k]
-        JetPuppi_puId_ptD                  [key][0] = event.JetPuppi_puId_ptD[k]
-        JetPuppi_puId_beta                 [key][0] = event.JetPuppi_puId_beta[k]
-        JetPuppi_puId_pull                 [key][0] = event.JetPuppi_puId_pull[k]
-        JetPuppi_puId_jetR                 [key][0] = event.JetPuppi_puId_jetR[k]
-        JetPuppi_PFCands_jetR              [key][0] = PFCands_jetR
-        JetPuppi_puId_jetRchg              [key][0] = event.JetPuppi_puId_jetRchg[k]
-        JetPuppi_PFCands_jetRchg           [key][0] = PFCands_jetRchg
-#        JetPuppi_nConstituents             [key][0] = ord(event.JetPuppi_nConstituents[k])
-        JetPuppi_PFCands_nConstituents     [key][0] = PFCands_nConstituents
-        JetPuppi_puId_nCharged             [key][0] = event.JetPuppi_puId_nCharged[k]
-        JetPuppi_PFCands_nCharged          [key][0] = PFCands_nCharged
-#        JetPuppi_dRMatch                   [key][0] = dRMatch_
-        JetPuppi_genJetIdx                 [key][0] = event.JetPuppi_genJetIdx[k]
-        JetPuppi_partonFlavour             [key][0] = event.JetPuppi_partonFlavour[k]
+        Jet_pt                        [key][0] = event.Jet_pt[k]
+        Jet_eta                       [key][0] = event.Jet_eta[k]
+        Jet_puId_dR2Mean              [key][0] = event.Jet_puId_dR2Mean[k]
+        Jet_puId_majW                 [key][0] = event.Jet_puId_majW[k]
+        Jet_puId_minW                 [key][0] = event.Jet_puId_minW[k]
+        Jet_puId_frac01               [key][0] = event.Jet_puId_frac01[k]
+        Jet_puId_frac02               [key][0] = event.Jet_puId_frac02[k]
+        Jet_puId_frac03               [key][0] = event.Jet_puId_frac03[k]
+        Jet_puId_frac04               [key][0] = event.Jet_puId_frac04[k]
+        Jet_puId_ptD                  [key][0] = event.Jet_puId_ptD[k]
+        Jet_puId_beta                 [key][0] = event.Jet_puId_beta[k]
+        Jet_puId_pull                 [key][0] = event.Jet_puId_pull[k]
+        Jet_puId_jetR                 [key][0] = event.Jet_puId_jetR[k]
+        Jet_PFCands_jetR              [key][0] = PFCands_jetR
+        Jet_puId_jetRchg              [key][0] = event.Jet_puId_jetRchg[k]
+        Jet_PFCands_jetRchg           [key][0] = PFCands_jetRchg
+#        Jet_nConstituents             [key][0] = ord(event.Jet_nConstituents[k])
+        Jet_PFCands_nConstituents     [key][0] = PFCands_nConstituents
+        Jet_puId_nCharged             [key][0] = event.Jet_puId_nCharged[k]
+        Jet_PFCands_nCharged          [key][0] = PFCands_nCharged
+#        Jet_dRMatch                   [key][0] = dRMatch_
+        Jet_genJetIdx                 [key][0] = event.Jet_genJetIdx[k]
+        Jet_partonFlavour             [key][0] = event.Jet_partonFlavour[k]
         Zpt_Jetpt                          [key][0] = Z_jet_pt_ratio
         dphi_zj                            [key][0] = temp_dphi_zj
-        JetPuppi_PFCands_dR2Mean           [key][0] = PFCands_dR2Mean
-        JetPuppi_PFCands_majW              [key][0] = PFCands_majW
-        JetPuppi_PFCands_minW              [key][0] = PFCands_minW
-        JetPuppi_PFCands_frac01            [key][0] = PFCands_fracs[0]
-        JetPuppi_PFCands_frac02            [key][0] = PFCands_fracs[1]
-        JetPuppi_PFCands_frac03            [key][0] = PFCands_fracs[2]
-        JetPuppi_PFCands_frac04            [key][0] = PFCands_fracs[3]
-        JetPuppi_PFCands_ptD               [key][0] = PFCands_ptD
-        JetPuppi_PFCands_beta              [key][0] = PFCands_beta
-        JetPuppi_PFCands_pull              [key][0] = pull
+        Jet_PFCands_dR2Mean           [key][0] = PFCands_dR2Mean
+        Jet_PFCands_majW              [key][0] = PFCands_majW
+        Jet_PFCands_minW              [key][0] = PFCands_minW
+        Jet_PFCands_frac01            [key][0] = PFCands_fracs[0]
+        Jet_PFCands_frac02            [key][0] = PFCands_fracs[1]
+        Jet_PFCands_frac03            [key][0] = PFCands_fracs[2]
+        Jet_PFCands_frac04            [key][0] = PFCands_fracs[3]
+        Jet_PFCands_ptD               [key][0] = PFCands_ptD
+        Jet_PFCands_beta              [key][0] = PFCands_beta
+        Jet_PFCands_pull              [key][0] = pull
 
         if k == lead_jet_idx:
             LeadJetTree_toFill = LeadJetTrees[key]
-            for i in range(len(Lead_JetPuppi_PFCands_puppiWeight_list)):
-                Lead_JetPuppi_PFCands_puppiWeight        [key][0] = Lead_JetPuppi_PFCands_puppiWeight_list[i]
-                Lead_JetPuppi_PFCands_puppiWeightNoLep   [key][0] = Lead_JetPuppi_PFCands_puppiWeightNoLep_list[i]
+            for i in range(len(Lead_Jet_PFCands_puppiWeight_list)):
+                Lead_Jet_PFCands_puppiWeight        [key][0] = Lead_Jet_PFCands_puppiWeight_list[i]
+                Lead_Jet_PFCands_puppiWeightNoLep   [key][0] = Lead_Jet_PFCands_puppiWeightNoLep_list[i]
                 LeadJetTree_toFill.Fill()
         PFCandsTree_toFill = PFCandsTrees[key]
         for aa in range(PFCands_nConstituents):
-            JetPuppi_PFCands_dR                      [key][0] = PFCands_dR_list[aa]
-            JetPuppi_PFCands_puppiWeight             [key][0] = PFCands_puppiWeight_list[aa]
-            JetPuppi_PFCands_puppiWeightNoLep        [key][0] = PFCands_puppiWeightNoLep_list[aa]
+            Jet_PFCands_dR                      [key][0] = PFCands_dR_list[aa]
+            Jet_PFCands_puppiWeight             [key][0] = PFCands_puppiWeight_list[aa]
+            Jet_PFCands_puppiWeightNoLep        [key][0] = PFCands_puppiWeightNoLep_list[aa]
             PFCandsTree_toFill.Fill()
         outTree_toFill.Fill()
 

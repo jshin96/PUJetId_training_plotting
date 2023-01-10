@@ -1,14 +1,14 @@
 executable           = run_make_trees_PUPPI_CHS_matching.sh 
-output               = std_make_trees_CHS_puppi_matching_2018_$(ProcId)
-error                = std_make_trees_CHS_puppi_matching_2018_$(ProcId)
-log                  = log_make_trees_CHS_puppi_matching_2018_$(ProcId)
+output               = std_make_trees_puppi_CHS_matching_2018_$(ProcId)
+error                = std_make_trees_puppi_CHS_matching_2018_$(ProcId)
+log                  = log_make_trees_puppi_CHS_matching_2018_$(ProcId)
 use_x509userproxy    = True
 GetEnv               = True
 Universe             = vanilla
 
-transfer_input_files = make_training_trees_CHS_PUPPI_matching.py
+transfer_input_files = make_training_trees_PUPPI_CHS_matching.py
 
-arguments            = 106X 2018 chs $(input) 10 100 $(output_index)
+arguments            = 106X 2018 puppi $(input) 10 100 $(output_index)
 +JobFlavour          = "tomorrow"
 MaxTransferOutputMB = -1
 
@@ -85,3 +85,38 @@ input=input_2018_17.txt
 output_index=17
 queue
 
+input=input_2018_18.txt
+output_index=18
+queue
+
+input=input_2018_19.txt
+output_index=19
+queue
+
+input=input_2018_20.txt
+output_index=20
+queue
+
+input=input_2018_21.txt
+output_index=21
+queue
+
+input=input_2018_22.txt
+output_index=22
+queue
+
+input=input_2018_23.txt
+output_index=23
+queue
+
+input=input_2018_24.txt
+output_index=24
+queue
+
+input=input_2018_25.txt
+output_index=25
+queue
+
+input=input_2018_26.txt
+output_index=26
+queue

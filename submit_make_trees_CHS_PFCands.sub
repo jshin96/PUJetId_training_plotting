@@ -1,14 +1,14 @@
-executable           = run_make_trees_PUPPI_PFcands.sh 
-output               = std_make_trees_puppi_PFcands_2018_$(ProcId)
-error                = std_make_trees_puppi_PFcands_2018_$(ProcId)
-log                  = log_make_trees_puppi_PFcands_2018_$(ProcId)
+executable           = run_make_trees_CHS_PFcands.sh 
+output               = std_make_trees_CHS_PFcands_2018_$(ProcId)
+error                = std_make_trees_CHS_PFcands_2018_$(ProcId)
+log                  = log_make_trees_CHS_PFcands_2018_$(ProcId)
 use_x509userproxy    = True
 GetEnv               = True
 Universe             = vanilla
 
-transfer_input_files = make_training_trees_PUPPI_PFcands.py
+transfer_input_files = make_training_trees_CHS_PFcands.py
 
-arguments            = 106X 2018 puppi $(input) 10 100 $(output_index)
+arguments            = 106X 2018 chs $(input) 10 100 $(output_index)
 +JobFlavour          = "tomorrow"
 MaxTransferOutputMB = -1
 

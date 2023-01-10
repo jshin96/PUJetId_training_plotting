@@ -108,3 +108,15 @@ queue
 input=input_2018_23.txt
 output_index=23
 queue
+
+input=input_2018_24.txt
+output_index=24
+queue
+
+input=input_2018_25.txt
+output_index=25
+queue
+
+input=input_2018_26.txt
+output_index=26
+queue

@@ -323,10 +323,9 @@ for ievent, event in enumerate(tChain):
                     min_dR_CHS_PUPPI=dR_CHS_PUPPI
                     min_dR_CHS_PUPPI_index = PUPPI_index
 
-            if (min_dR_CHS_PUPPI >= 0 and min_dR_CHS_PUPPI < 0.2):
-                dR_CHS_PUPPI_Mathced=True
-                PUPPI_good_jet_index.remove(min_dR_CHS_PUPPI_index)
-        if (abs(flavor_) == 0 and GenJetIdx < 0 and dR_CHS_PUPPI_Matched):
+#            if (min_dR_CHS_PUPPI >= 0 and min_dR_CHS_PUPPI < 0.4):
+#                PUPPI_good_jet_index.remove(min_dR_CHS_PUPPI_index)
+        if (abs(flavor_) == 0 and GenJetIdx < 0 and min_dR_CHS_PUPPI<0.4):
             isPileup = True
             nPileup += 1
         key = ""
