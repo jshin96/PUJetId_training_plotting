@@ -1,0 +1,122 @@
+executable           = run_make_trees_CHS.sh 
+output               = std_make_trees_chs_2018_$(output_index)
+error                = std_make_trees_chs_2018_$(output_index)
+log                  = log_make_trees_chs_2018_$(output_index)
+use_x509userproxy    = true
+GetEnv               = True
+Universe             = vanilla
+
+transfer_input_files = make_training_trees_CHS.py
+
+arguments            = 106X 2018 chs $(input) 10 100 $(output_index)
++JobFlavour          = "tomorrow"
+MaxTransferOutputMB = -1
+
+
+input=input_2018_0.txt
+output_index=0
+queue
+
+input=input_2018_1.txt
+output_index=1
+queue
+
+input=input_2018_2.txt
+output_index=2
+queue
+
+input=input_2018_3.txt
+output_index=3
+queue
+
+input=input_2018_4.txt
+output_index=4
+queue
+
+input=input_2018_5.txt
+output_index=5
+queue
+
+input=input_2018_6.txt
+output_index=6
+queue
+
+input=input_2018_7.txt
+output_index=7
+queue
+
+input=input_2018_8.txt
+output_index=8
+queue
+
+input=input_2018_9.txt
+output_index=9
+queue
+
+input=input_2018_10.txt
+output_index=10
+queue
+
+input=input_2018_11.txt
+output_index=11
+queue
+
+input=input_2018_12.txt
+output_index=12
+queue
+
+input=input_2018_13.txt
+output_index=13
+queue
+
+input=input_2018_14.txt
+output_index=14
+queue
+
+input=input_2018_15.txt
+output_index=15
+queue
+
+input=input_2018_16.txt
+output_index=16
+queue
+
+input=input_2018_17.txt
+output_index=17
+queue
+
+input=input_2018_18.txt
+output_index=18
+queue
+
+input=input_2018_19.txt
+output_index=19
+queue
+
+input=input_2018_20.txt
+output_index=20
+queue
+
+input=input_2018_21.txt
+output_index=21
+queue
+
+input=input_2018_22.txt
+output_index=22
+queue
+
+input=input_2018_23.txt
+output_index=23
+queue
+
+input=input_2018_24.txt
+output_index=24
+queue
+
+input=input_2018_25.txt
+output_index=25
+queue
+
+input=input_2018_26.txt
+output_index=26
+queue

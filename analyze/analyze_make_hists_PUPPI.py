@@ -75,9 +75,12 @@ print("Input File:\t", input_filename)
 print("Output File:\t", output_filename)
 
 input_tree = "Events"
-
+#tChain = ROOT.TChain("Events")
+#tChain.Add(input_filename)
 input_file = ROOT.TFile.Open(input_filename)
-events = input_file.Get(input_tree)
+#for i in tChain:
+#    events = i
+events = input_file.Get("Events")
 
 eta_bins = [
     "Eta0p0To2p5",
@@ -353,7 +356,7 @@ h_ptD = book_hist_dict(50, 0.0, 1.0, "ptD", keys=h_keys1, keys_sub=h_keys4).clon
 h_pull = book_hist_dict(50, 0.0, 0.025, "pull", keys=h_keys1, keys_sub=h_keys4).clone()
 h_fixedGridRhoFastjetAll = book_hist_dict(100, 0.0, 60.0, "fixedGridRhoFastjetAll", keys=h_keys1, keys_sub=h_keys4).clone()
 
-h_old_mva = book_hist_dict(200, -1.0, 1.0, "old_mva", keys=h_keys1, keys_sub=h_keys4).clone()
+#h_old_mva = book_hist_dict(200, -1.0, 1.0, "old_mva", keys=h_keys1, keys_sub=h_keys4).clone()
 h_new_mva = book_hist_dict(200, -1.0, 1.0, "new_mva", keys=h_keys1, keys_sub=h_keys4).clone()
 
 
@@ -426,7 +429,7 @@ def write_hists(k=""):
     if k in h_ptD: h_ptD[k].Write()
     if k in h_pull: h_pull[k].Write()
     if k in h_fixedGridRhoFastjetAll: h_fixedGridRhoFastjetAll[k].Write()
-    if k in h_old_mva: h_old_mva[k].Write()
+#    if k in h_old_mva: h_old_mva[k].Write()
     if k in h_new_mva: h_new_mva[k].Write()
 
     return 0
@@ -434,10 +437,11 @@ def write_hists(k=""):
 
 # pileup weight
 
-f_pu_weights = ROOT.TFile.Open(f"pu_weights_{year}.root")
-h_pu_weights = f_pu_weights.Get("weights")
+#f_pu_weights = ROOT.TFile.Open("pu_weights_${year}.root","READ")
+#print("opened pu_weights_${year}.root")
+#weights_tree = f_pu_weights.Get("Events")
 
-def process_event(e):
+def process_event(entry,e):
     
     weight = 1.0
     if data_type == "mc":
@@ -448,53 +452,59 @@ def process_event(e):
 
     if data_type == "mc":
 
-        if e.genEvtWeight_ < 0:
+        if e.Generator_weight < 0:
             gen_weight = -1.0
-
-        npu = e.npu_
-        pu_weight = h_pu_weights.GetBinContent(npu)
+        pu_weight = e.weights
 
         
     weight = weight * gen_weight * pu_weight
     #number of good primary vertex 
     nvtx = e.PV_npvsGood
-    #select two same flavour leptons and check that mass around Z Boson mass to select DY leptons
+    #select two same flavour leptons and check that mass around Z Boson mass to select DY leptons (Muon channel only for now)
+
+    Lep1=ROOT.TLorentzVector()
+    Lep2=ROOT.TLorentzVector()
     mu_Lep1 = ROOT.TLorentzVector()
     mu_Lep2 = ROOT.TLorentzVector()
     mu_Z_Boson = mu_Lep1+mu_Lep2
     el_Lep1 = ROOT.TLorentzVector()
     el_Lep2 = ROOT.TLorentzVector()
     el_Z_Boson = el_Lep1+el_Lep2
+    Z_Boson = ROOT.TLorentzVector()
     if e.nMuon==2:
         mu_Lep1.SetPtEtaPhiM(e.Muon_pt[0], e.Muon_eta[0],e.Muon_phi[0],e.Muon_mass[0])
         mu_Lep2.SetPtEtaPhiM(e.Muon_pt[1], e.Muon_eta[1],e.Muon_phi[1],e.Muon_mass[1])
         mu_Z_Boson = mu_Lep1+mu_Lep2
-        
+    else:
+        return
 
-    if e.nElectron==2:
-        el_Lep1.SetPtEtaPhiM(e.Electron_pt[0], e.Electron_eta[0],e.Electron_phi[0],e.Electron_mass[0])
-        el_Lep2.SetPtEtaPhiM(e.Electron_pt[1], e.Electron_eta[1],e.Electron_phi[1],e.Electron_mass[1])
-        el_Z_Boson = el_Lep1+el_Lep2
+#    if e.nElectron==2:
+#        el_Lep1.SetPtEtaPhiM(e.Electron_pt[0], e.Electron_eta[0],e.Electron_phi[0],e.Electron_mass[0])
+#        el_Lep2.SetPtEtaPhiM(e.Electron_pt[1], e.Electron_eta[1],e.Electron_phi[1],e.Electron_mass[1])
+#        el_Z_Boson = el_Lep1+el_Lep2
 
     if mu_Z_Boson.M() > 70 and mu_Z_Boson.M() < 110:
          Lep1 = mu_Lep1
          Lep2 = mu_Lep2
          Z_Boson = mu_Z_Boson
 
-    if el_Z_Boson.M() > 70 and el_Z_Boson.M() < 110:
-         Lep1 = el_Lep1
-         Lep2 = el_Lep2
-         Z_Boson = el_Z_Boson
+    else:
+        return
+
+#    elif el_Z_Boson.M() > 70 and el_Z_Boson.M() < 110:
+#         Lep1 = el_Lep1
+#         Lep2 = el_Lep2
+#         Z_Boson = el_Z_Boson
 
             
 
-    lept_pt1 = Lep1.Pt[0]
-    lept_eta1 = Lep1.Eta[0]
-    lept_phi1 = Lep1.Phi[0]
+    lept_pt1 = Lep1.Pt()
+    lept_eta1 = Lep1.Eta()
+    lept_phi1 = Lep1.Phi()
 
-    lept_pt2 = Lep2.Pt[1]
-    lept_eta2 = Lep2.Eta[1]
-    lept_phi2 = Lep2.Phi[1]
+    lept_pt2 = Lep2.Pt()
+    lept_eta2 = Lep2.Eta()
+    lept_phi2 = Lep2.Phi()
 
 
     z_mass = Z_Boson.M()
@@ -508,20 +518,12 @@ def process_event(e):
     n_jets = len(e.JetPuppi_pt)
     assert (n_jets == e.nJetPuppi)
 
-    lead_jet_index=0
-    for i in range(n_jets):
-        if e.JetPuppi_pt[i]>e.JetPuppi_pt[lead_jet_index]:
-            lead_jet_index = i
-
-    dphi_zj = dphi(z_phi, e.JetPuppi_phi[lead_jet_index])
-    tmva_v_fixedGridRhoFastjetAll[0] = e.fixedGridRhoFastjetAll
-    
     def fill_hist_per_event(k=""):
         h_nvtx[k].Fill(nvtx, weight)
 
         h_z_mass[k].Fill(z_mass, weight)
         h_z_pt[k].Fill(z_pt, weight)
-        h_z_phi[k].Fill(z_phi, weight)
+        h_z_phi[k].Fill(z_phi, weight) 
         h_z_rapidity[k].Fill(z_rapidity, weight)
 
         h_lept_pt1[k].Fill(lept_pt1, weight)
@@ -530,277 +532,293 @@ def process_event(e):
         h_lept_eta2[k].Fill(lept_eta2, weight)
         h_lept_phi1[k].Fill(lept_phi1, weight)
         h_lept_phi2[k].Fill(lept_phi2, weight)
-
-        h_dphi_zj[k].Fill(dphi_zj, weight)
+        if dphi_zj != "something":
+            h_dphi_zj[k].Fill(dphi_zj, weight)
         h_n_jets[k].Fill(n_jets, weight)
         h_fixedGridRhoFastjetAll[k].Fill(tmva_v_fixedGridRhoFastjetAll[0], weight)
 
         return 0
+    lead_jet_index=0
+    if n_jets > 0:
+        #identify index of jet for each photons and electrons in jet (-1 if it is not in a jet)
+        photon_in_jet_index=[]
+        electron_in_jet_index=[]
 
-    e_new_mva = []
+        if e.nPhoton != 0:    
+            for j in range(e.nPhoton):
+                photon_in_jet_index.append(j)
 
-    photon_in_jet_index=[]
-    electron_in_jet_index=[]
-    if e.nPhoton != 0:    
-        for j in range(e.nPhoton):
-            photon_in_jet_index.append(j)
-    if e.nElectron != 0:
-        for k in range(e.nElectron):
-            electron_in_jet_index.append(k)
+        if e.nElectron != 0:
+            for k in range(e.nElectron):
+                electron_in_jet_index.append(k)
+        #identify leading jet index
+        for i in range(n_jets):
+            if e.JetPuppi_pt[i]>e.JetPuppi_pt[lead_jet_index]:
+                lead_jet_index = i
+        #dphi of leading jet and Z boson
+        dphi_zj = "something"
+        dphi_zj = dphi(z_phi, e.JetPuppi_phi[lead_jet_index])
+    
+
+        e_new_mva = []
+
 
     #Default for Puppi Jet, needs to b e adjusted to Jet instead of JetPuppi for CHS jet
-    for i in range(e.nJetPuppi):
+        for i in range(e.nJetPuppi):
 
-        jet_pt = e.JetPuppi_pt[i]
-        jet_eta = e.JetPuppi_eta[i]
-        jet_phi = e.JetPuppi_phi[i]
-        jet_mass = e.JetPuppi_mass[i]
-        temp_jet=ROOT.TLorentzVector()
-        temp_jet.SetPtEtaPhiM(jet_pt, jet_eta, jet_phi, jet_mass)
-        jet_energy = temp_jet.E()
+            jet_pt = e.JetPuppi_pt[i]
+            jet_eta = e.JetPuppi_eta[i]
+            jet_phi = e.JetPuppi_phi[i]
+            jet_mass = e.JetPuppi_mass[i]
+            temp_jet=ROOT.TLorentzVector()
+            temp_jet.SetPtEtaPhiM(jet_pt, jet_eta, jet_phi, jet_mass)
+            jet_energy = temp_jet.E()
 
-        jet_chf = e.JetPuppi_chHEF[i]
-        jet_cemf = e.JetPuppi_chEmEF[i]
-        jet_nemf = e.JetPuppi_neEmEF[i]
-        jet_nhf = e.JetPuppi_neHEF[i]
+            jet_chf = e.JetPuppi_chHEF[i]
+            jet_cemf = e.JetPuppi_chEmEF[i]
+            jet_nemf = e.JetPuppi_neEmEF[i]
+            jet_nhf = e.JetPuppi_neHEF[i]
 
-        #select photons and electrons associated with the current jet to calculate the ratio.
-        photon_in_jet=ROOT.TLorentzVector()
-        if e.nPhoton !=0 and e.JetPuppi_nConstPhotons != 0:
-            for j in range(e.nPhoton):
-                temp_photon_in_jet=ROOT.TLorentzVector()
-                if photon_in_jet_index[j]==i:
-                    temp_photon_in_jet.SetPtEtaPhiM(e.Photon_pt[j], e.Photon_eta[j], e.Photon_phi[j], e.Photon_mass[j])
-                    photon_in_jet = photon_in_jet+temp_photon_in_jet
-        jet_phf = photon_in_jet.E()/jet_energy
+        #select photons and electrons associated with the current jet to calculate the energy fraction.
+            photon_in_jet=ROOT.TLorentzVector()
+            if e.nPhoton !=0 and e.JetPuppi_nConstPhotons != 0:
+                for j in range(e.nPhoton):
+                    temp_photon_in_jet=ROOT.TLorentzVector()
+                    if photon_in_jet_index[j]==i:
+                        temp_photon_in_jet.SetPtEtaPhiM(e.Photon_pt[j], e.Photon_eta[j], e.Photon_phi[j], e.Photon_mass[j])
+                        photon_in_jet = photon_in_jet+temp_photon_in_jet
+                jet_phf = photon_in_jet.E()/jet_energy
 
-        electron_in_jet=ROOT.TLorentzVector()
-        if e.nElectron != 0 and e.JetPuppi_nElectrons != 0: 
-            for j in range(e.nElectron):
-                temp_electron_in_jet=ROOT.TLorentzVector()
-                if electron_in_jet_index[j]==i:
-                    temp_electron_in_jet.SetPtEtaPhiM(e.Electron_pt[j], e.Electron_eta[j], e.Electron_phi[j], e.Electron_mass[j])
-                    electron_in_jet = electron_in_jet+temp_electron_in_jet
-            jet_elf = electron_in_jet.E()/jet_energy
+            electron_in_jet=ROOT.TLorentzVector()
+            if e.nElectron != 0 and e.JetPuppi_nElectrons != 0: 
+                for j in range(e.nElectron):
+                    temp_electron_in_jet=ROOT.TLorentzVector()
+                    if electron_in_jet_index[j]==i:
+                        temp_electron_in_jet.SetPtEtaPhiM(e.Electron_pt[j], e.Electron_eta[j], e.Electron_phi[j], e.Electron_mass[j])
+                        electron_in_jet = electron_in_jet+temp_electron_in_jet
+                jet_elf = electron_in_jet.E()/jet_energy
 
-        jet_muf = e.JetPuppi_muEF[i]
+            jet_muf = e.JetPuppi_muEF[i]
 
-        jet_chm = e.JetPuppi_nConstChHads[i]
-        jet_nhm = e.JetPuppi_nConstNeuHads[i]
-        jet_phm = e.JetPuppi_nConstPhotons[i]
-        jet_mum = e.JetPuppi_nConstMuons[i]
-        jet_elm = e.JetPuppi_nConstElecs[i]
-        jet_npr = e.JetPuppi_nConstituents[i] - e.JetPuppi_puId_nCharged[i]
+            jet_chm = e.JetPuppi_nConstChHads[i]
+            jet_nhm = e.JetPuppi_nConstNeuHads[i]
+            jet_phm = e.JetPuppi_nConstPhotons[i]
+            jet_mum = e.JetPuppi_nConstMuons[i]
+            jet_elm = e.JetPuppi_nConstElecs[i]
+            jet_npr = ord(e.JetPuppi_nConstituents[i]) - int(e.JetPuppi_puId_nCharged[i])
 
-        if data_type == "mc":
-            jet_dR = -1
-            Gen_index = event.JetPuppi_genJetIdx[i]
-            if Gen_index != -1:
-                Matched_GenJet_eta = event.GenJet_eta[Gen_index]
-                Matched_GenJet_phi = event.GenJet_phi[Gen_index]
-                jet_dR = ((jet_eta-Matched_GenJet_eta)**2+(jet_phi-Matched_GenJet_phi)**2)**0.5
-            jet_flavor = e.JetPuppi_partonFlavour[i]
+            if data_type == "mc":
+                jet_dR = -1
+                Gen_index = event.JetPuppi_genJetIdx[i]
+                if Gen_index != -1:
+                    Matched_GenJet_eta = event.GenJet_eta[Gen_index]
+                    Matched_GenJet_phi = event.GenJet_phi[Gen_index]
+                    jet_dR = ((jet_eta-Matched_GenJet_eta)**2+(jet_phi-Matched_GenJet_phi)**2)**0.5
+                jet_flavor = e.JetPuppi_partonFlavour[i]
 
-        tmva_s_jetPt[0] = jet_pt
-        tmva_s_jetEta[0] = jet_eta
+            tmva_s_jetPt[0] = jet_pt
+            tmva_s_jetEta[0] = jet_eta
 
-        tmva_v_nvtx[0] = nvtx
-        tmva_v_beta[0] = e.JetPuppi_puId_beta[i]
-        tmva_v_dR2Mean[0] = e.JetPuppi_puId_dR2Mean[i]
-        tmva_v_frac01[0] = e.JetPuppi_puId_frac01[i]
-        tmva_v_frac02[0] = e.JetPuppi_puId_frac02[i]
-        tmva_v_frac03[0] = e.JetPuppi_puId_frac03[i]
-        tmva_v_frac04[0] = e.JetPuppi_puId_frac04[i]
-        tmva_v_majW[0] = e.JetPuppi_puId_majW[i]
-        tmva_v_minW[0] = e.JetPuppi_puId_minW[i]
-        tmva_v_jetR[0] = e.JetPuppi_puId_jetR[i]
-        tmva_v_jetRchg[0] = e.JetPuppi_puId_jetRchg[i]
-        tmva_v_nConsituents[0] = e.JetPuppi_nConstituents[i]
-        tmva_v_nCharged[0] = e.JetPuppi_puId_nCharged[i]
-        tmva_v_ptD[0] = e.JetPuppi_puId_ptD[i]
-        tmva_v_pull[0] = e.JetPuppi_puId_pull[i]
-        old_mva = e.pumva[i]
-        new_mva = "something"
+            tmva_v_nvtx[0] = nvtx
+            tmva_v_beta[0] = e.JetPuppi_puId_beta[i]
+            tmva_v_dR2Mean[0] = e.JetPuppi_puId_dR2Mean[i]
+            tmva_v_frac01[0] = e.JetPuppi_puId_frac01[i]
+            tmva_v_frac02[0] = e.JetPuppi_puId_frac02[i]
+            tmva_v_frac03[0] = e.JetPuppi_puId_frac03[i]
+            tmva_v_frac04[0] = e.JetPuppi_puId_frac04[i]
+            tmva_v_majW[0] = e.JetPuppi_puId_majW[i]
+            tmva_v_minW[0] = e.JetPuppi_puId_minW[i]
+            tmva_v_jetR[0] = e.JetPuppi_puId_jetR[i]
+            tmva_v_jetRchg[0] = e.JetPuppi_puId_jetRchg[i]
+            tmva_v_nConstituents[0] = ord(e.JetPuppi_nConstituents[i])
+            tmva_v_nCharged[0] = e.JetPuppi_puId_nCharged[i]
+            tmva_v_ptD[0] = e.JetPuppi_puId_ptD[i]
+            tmva_v_pull[0] = e.JetPuppi_puId_pull[i]         
+            tmva_v_fixedGridRhoFastjetAll[0] = e.fixedGridRhoFastjetAll
+#            old_mva = e.pumva[i]
+            new_mva = 0
 
-        for i, f_eta in enumerate(f_eta_bins):
+            for i, f_eta in enumerate(f_eta_bins):
+                #this -1 is added to avoid the new_mva score array not filling up for jet that does not belong in any of the eta bins
+                new_mva=-1
+                if abs(jet_eta) > f_eta[0] and abs(jet_eta) <= f_eta[1]: 
+                    new_mva = tmva_readers[i].EvaluateMVA("BDT")
+                e_new_mva.append(new_mva)
 
-            if abs(jet_eta) > f_eta[0] and abs(jet_eta) <= f_eta[1]:
+            def fill_hist_per_jet(k=""):
+                h_jet_pt[k].Fill(jet_pt, weight)
+                h_jet_eta[k].Fill(jet_eta, weight)
+                h_jet_phi[k].Fill(jet_phi, weight)
+                h_jet_energy[k].Fill(jet_energy, weight)
+ 
+                if data_type == "mc": h_jet_dR[k].Fill(jet_dR, weight)
+ 
+                h_jet_chf[k].Fill(jet_chf, weight)
+                h_jet_cemf[k].Fill(jet_cemf, weight)
+                h_jet_nhf[k].Fill(jet_nhf, weight)
+                h_jet_nemf[k].Fill(jet_nemf, weight)
+                if e.nPhoton !=0 and e.JetPuppi_nConstPhotons != 0:
+                    h_jet_phf[k].Fill(jet_phf, weight)
+                h_jet_muf[k].Fill(jet_muf, weight)
+                if e.nElectron != 0 and e.JetPuppi_nElectrons != 0: 
+                    h_jet_elf[k].Fill(jet_elf, weight)
+                h_jet_npr[k].Fill(jet_npr, weight)
+                h_jet_chm[k].Fill(jet_chm, weight)
+                h_jet_nhm[k].Fill(jet_nhm, weight)
+                h_jet_phm[k].Fill(jet_phm, weight)
+                h_jet_mum[k].Fill(jet_mum, weight)
+                h_jet_elm[k].Fill(jet_elm, weight)
+ 
+                h_jet_beta[k].Fill(tmva_v_beta[0], weight)
+                h_dR2Mean[k].Fill(tmva_v_dR2Mean[0], weight)
+                h_frac01[k].Fill(tmva_v_frac01[0], weight)
+                h_frac02[k].Fill(tmva_v_frac02[0], weight)
+                h_frac03[k].Fill(tmva_v_frac03[0], weight)
+                h_frac04[k].Fill(tmva_v_frac04[0], weight)
+                h_jetRchg[k].Fill(tmva_v_jetRchg[0], weight)
+                h_jetR[k].Fill(tmva_v_jetR[0], weight)
+                h_majW[k].Fill(tmva_v_majW[0], weight)
+                h_minW[k].Fill(tmva_v_minW[0], weight)
+                h_nCharged[k].Fill(tmva_v_nCharged[0], weight)
+                h_nConstituents[k].Fill(tmva_v_nConstituents[0], weight)
+                h_ptD[k].Fill(tmva_v_ptD[0], weight)
+                h_pull[k].Fill(tmva_v_pull[0], weight)
 
-                new_mva = tmva_readers[i].EvaluateMVA("BDT")
+#                h_old_mva[k].Fill(old_mva, weight)
+                h_new_mva[k].Fill(new_mva, weight)
 
-        assert (new_mva != "something")
+                return 0
+ 
+            fill_hist_per_jet(k=h_keys1[0])
 
-        e_new_mva.append(new_mva)
+            if data_type =="mc":
+                if jet_dR < 0.2 and jet_dR >= 0:
+                    jet_type = "prompt"
 
-        def fill_hist_per_jet(k=""):
-            h_jet_pt[k].Fill(jet_pt, weight)
-            h_jet_eta[k].Fill(jet_eta, weight)
-            h_jet_phi[k].Fill(jet_phi, weight)
-            h_jet_energy[k].Fill(jet_energy, weight)
+                elif jet_dR > 0.4 and jet_dR >= 0 and abs(jet_flavor) == 0:
+                   jet_type = "pileup"
 
-            if data_type == "mc": h_jet_dR[k].Fill(jet_dR, weight)
+                else:
+                   jet_type = "rest"
 
-            h_jet_chf[k].Fill(jet_chf, weight)
-            h_jet_cemf[k].Fill(jet_cemf, weight)
-            h_jet_nhf[k].Fill(jet_nhf, weight)
-            h_jet_nemf[k].Fill(jet_nemf, weight)
-            h_jet_phf[k].Fill(jet_phf, weight)
-            h_jet_muf[k].Fill(jet_muf, weight)
-            h_jet_elf[k].Fill(jet_elf, weight)
-            h_jet_npr[k].Fill(jet_npr, weight)
-            h_jet_chm[k].Fill(jet_chm, weight)
-            h_jet_nhm[k].Fill(jet_nhm, weight)
-            h_jet_phm[k].Fill(jet_phm, weight)
-            h_jet_mum[k].Fill(jet_mum, weight)
-            h_jet_elm[k].Fill(jet_elm, weight)
+            for i, f_eta in enumerate(f_eta_bins):
+    
+                if abs(jet_eta) > f_eta[0] and abs(jet_eta) <= f_eta[1]:
+                    key_eta = eta_bins[i]
+    
+                    if data_type == "mc":
+                        k1 = "%s_%s_%s" % (h_keys1[0], key_eta, "all")
+                        k2 = "%s_%s_%s" % (h_keys1[0], key_eta, jet_type)
+                        fill_hist_per_jet(k1)
+                        fill_hist_per_jet(k2)
+ 
+                    if data_type == "data":
+                        k1 = "%s_%s" % (h_keys1[0], key_eta)
+                        fill_hist_per_jet(k1)
+       
 
-            h_jet_beta[k].Fill(tmva_v_beta[0], weight)
-            h_dR2Mean[k].Fill(tmva_v_dR2Mean[0], weight)
-            h_frac01[k].Fill(tmva_v_frac01[0], weight)
-            h_frac02[k].Fill(tmva_v_frac02[0], weight)
-            h_frac03[k].Fill(tmva_v_frac03[0], weight)
-            h_frac04[k].Fill(tmva_v_frac04[0], weight)
-            h_jetRchg[k].Fill(tmva_v_jetRchg[0], weight)
-            h_jetR[k].Fill(tmva_v_jetR[0], weight)
-            h_majW[k].Fill(tmva_v_majW[0], weight)
-            h_minW[k].Fill(tmva_v_minW[0], weight)
-            h_nCharged[k].Fill(tmva_v_nCharged[0], weight)
-            h_nConstituents[k].Fill(tmva_v_nConstituents[0], weight)
-            h_ptD[k].Fill(tmva_v_ptD[0], weight)
-            h_pull[k].Fill(tmva_v_pull[0], weight)
+                    for j, f_pt in enumerate(f_pt_bins):
+ 
+                        if jet_pt > f_pt[0] and jet_pt <= f_pt[1]:
+                            key_pt = pt_bins[j] 
+                            if data_type == "mc":
+                                k1 = "%s_%s_%s_%s" % (h_keys1[0], key_eta, key_pt, "all")
+                                k2 = "%s_%s_%s_%s" % (h_keys1[0], key_eta, key_pt, jet_type)
+                                fill_hist_per_jet(k1)
+                                fill_hist_per_jet(k2)
+ 
+                            if data_type == "data":
+                                k1 = "%s_%s_%s" % (h_keys1[0], key_eta, key_pt)
+                                fill_hist_per_jet(k1)
+     
+  
+        lead_jet_pt=0
+        lead_jet_index=0
+        for n in range(0,e.nJetPuppi):
+            if lead_jet_pt < e.JetPuppi_pt[n]:
+                lead_jet_pt = e.JetPuppi_pt[n]
+                lead_jet_index = n
+        if data_type == "mc" and len(e.JetPuppi_genJetIdx)>0:
+            lead_jet_dR = -1
+            lead_jet_genJet_index = e.JetPuppi_genJetIdx[lead_jet_index]
+            if lead_jet_genJet_index != -1:
+                Matched_GenJet_eta = e.GenJet_eta[lead_jet_genJet_index]
+                Matched_GenJet_phi = e.GenJet_phi[lead_jet_genJet_index]
+                lead_jet_dR = ((e.JetPuppi_eta[lead_jet_index]-Matched_GenJet_eta)**2+(e.JetPuppi_phi[lead_jet_index]-Matched_GenJet_phi)**2)**0.5
+            if lead_jet_dR < 0.2 and lead_jet_dR >= 0 and z_pt>0:
+                 h_dphi_zj_ptj_z["prompt"].Fill(dphi_zj, float(lead_jet_pt/z_pt), weight)
 
-            h_old_mva[k].Fill(old_mva, weight)
-            h_new_mva[k].Fill(new_mva, weight)
+            elif lead_jet_dR > 0.4 and lead_jet_dR >= 0 and z_pt>0 and abs(e.JetPuppi_hadronFlavour[lead_jet_index]) == 0:
+                 h_dphi_zj_ptj_z["pileup"].Fill(dphi_zj, float(lead_jet_pt/z_pt), weight)
+    
+        elif data_type == "data" and z_pt>0:
+            h_dphi_zj_ptj_z["data"].Fill(dphi_zj, float(lead_jet_pt/z_pt), weight)
 
-            return 0
+        fill_hist_per_event(k=h_keys1[0])
 
-        fill_hist_per_jet(k=h_keys1[0])
-
-        if data_type =="mc":
-            if jet_dR < 0.2:
-                jet_type = "prompt"
-
-            elif jet_dR > 0.4 and abs(jet_flavor) == 0:
-                jet_type = "pileup"
-
+        for i in range(n_jets):
+           
+            pt_zj_ratio = 0
+            if z_pt == 0: continue
             else:
-                jet_type = "rest"
+                pt_zj_ratio = lead_jet_pt/z_pt
 
-        for i, f_eta in enumerate(f_eta_bins):
+            if (abs(dphi_zj) > 2.5) and (pt_zj_ratio > 0.5) and (pt_zj_ratio < 1.5):
 
-            if abs(jet_eta) > f_eta[0] and abs(jet_eta) <= f_eta[1]:
-                key_eta = eta_bins[i]
+                key = "tight"
+                if len(e_new_mva)>0:
+                    if float(e_new_mva[i]) > mva_wp1:
+                        h_control_jet_pt[f"{key}_pass_wp1"].Fill(e.JetPuppi_pt[i], weight)
+                        h_control_jet_eta[f"{key}_pass_wp1"].Fill(e.JetPuppi_eta[i], weight)
+  
+                    else:
+                        h_control_jet_pt[f"{key}_fail_wp1"].Fill(e.JetPuppi_pt[i], weight)
+                        h_control_jet_eta[f"{key}_fail_wp1"].Fill(e.JetPuppi_eta[i], weight)
+  
+                    if float(e_new_mva[i]) > mva_wp2:
+                        h_control_jet_pt[f"{key}_pass_wp2"].Fill(e.JetPuppi_pt[i], weight)
+                        h_control_jet_eta[f"{key}_pass_wp2"].Fill(e.JetPuppi_eta[i], weight)
+  
+                    else:
+                        h_control_jet_pt[f"{key}_fail_wp2"].Fill(e.JetPuppi_pt[i], weight)
+                        h_control_jet_eta[f"{key}_fail_wp2"].Fill(e.JetPuppi_eta[i], weight)
+  
+                    if float(e_new_mva[i]) > mva_wp3:
+                        h_control_jet_pt[f"{key}_pass_wp3"].Fill(e.JetPuppi_pt[i], weight)
+                        h_control_jet_eta[f"{key}_pass_wp3"].Fill(e.JetPuppi_eta[i], weight)
+  
+                    else:
+                        h_control_jet_pt[f"{key}_fail_wp3"].Fill(e.JetPuppi_pt[i], weight)
+                        h_control_jet_eta[f"{key}_fail_wp3"].Fill(e.JetPuppi_eta[i], weight)
+ 
+            if abs(dphi_zj) < 1.5:
 
-                if data_type == "mc":
-                    k1 = "%s_%s_%s" % (h_keys1[0], key_eta, "all")
-                    k2 = "%s_%s_%s" % (h_keys1[0], key_eta, jet_type)
-                    fill_hist_per_jet(k1)
-                    fill_hist_per_jet(k2)
+                key = "loose"
+                if len(e_new_mva)>0:
+ 
+                    if float(e_new_mva[i]) > mva_wp1:
+                        h_control_jet_pt[f"{key}_pass_wp1"].Fill(e.JetPuppi_pt[i], weight)
+                        h_control_jet_eta[f"{key}_pass_wp1"].Fill(e.JetPuppi_eta[i], weight)
+ 
+                    else:
+                        h_control_jet_pt[f"{key}_fail_wp1"].Fill(e.JetPuppi_pt[i], weight)
+                        h_control_jet_eta[f"{key}_fail_wp1"].Fill(e.JetPuppi_eta[i], weight)
 
-                if data_type == "data":
-                    k1 = "%s_%s" % (h_keys1[0], key_eta)
-                    fill_hist_per_jet(k1)
-
-
-                for j, f_pt in enumerate(f_pt_bins):
-
-                    if jet_pt > f_pt[0] and jet_pt <= f_pt[1]:
-                        key_pt = pt_bins[j]
-
-                        if data_type == "mc":
-                            k1 = "%s_%s_%s_%s" % (h_keys1[0], key_eta, key_pt, "all")
-                            k2 = "%s_%s_%s_%s" % (h_keys1[0], key_eta, key_pt, jet_type)
-                            fill_hist_per_jet(k1)
-                            fill_hist_per_jet(k2)
-
-                        if data_type == "data":
-                            k1 = "%s_%s_%s" % (h_keys1[0], key_eta, key_pt)
-                            fill_hist_per_jet(k1)
-
-
-    lead_jet_pt=0
-    lead_jet_index=0
-    for n in e.nJetPuppi:
-        if lead_jet_pt < e.JetPuppi_pt[n]:
-            lead_jet_pt = e.JetPuppi_pt[n]
-            lead_jet_index = n
-    if data_type == "mc":
-        lead_jet_dR = -1
-        lead_jet_genJet_index = e.JetPuppi_genJetIdx[lead_jet_index]
-        if lead_jet_genJet_index != -1:
-            Matched_GenJet_eta = e.GenJet_eta[lead_jet_genJet_index]
-            Matched_GenJet_phi = e.GenJet_phi[lead_jet_genJet_index]
-            lead_jet_dR = ((e.JetPuppi_eta[lead_jet_index]-Matched_GenJet_eta)**2+(e.JetPuppi_phi[lead_jet_index]-Matched_GenJet_phi)**2)**0.5
-        if lead_jet_dR < 0.2:
-            h_dphi_zj_ptj_z["prompt"].Fill(dphi_zj, float(lead_jet_pt/z_pt), weight)
-
-        elif lead_jet_dR > 0.4 and abs(e.JetPuppi_hadronFlavour[lead_jet_index]) == 0:
-            h_dphi_zj_ptj_z["pileup"].Fill(dphi_zj, float(lead_jet_pt/z_pt), weight)
-
-    elif data_type == "data":
-        h_dphi_zj_ptj_z["data"].Fill(dphi_zj, float(lead_jet_pt/z_pt), weight)
-
-    fill_hist_per_event(k=h_keys1[0])
-
-    for i in range(n_jets):
-
-        pt_zj_ratio = lead_jet_pt/z_pt
-
-        if (abs(dphi_zj) > 2.5) and (pt_zj_ratio > 0.5) and (pt_zj_ratio < 1.5):
-
-            key = "tight"
-
-            if e_new_mva[i] > mva_wp1:
-                h_control_jet_pt[f"{key}_pass_wp1"].Fill(e.JetPuppi_pt[i], weight)
-                h_control_jet_eta[f"{key}_pass_wp1"].Fill(e.JetPuppi_eta[i], weight)
-
-            else:
-                h_control_jet_pt[f"{key}_fail_wp1"].Fill(e.JetPuppi_pt[i], weight)
-                h_control_jet_eta[f"{key}_fail_wp1"].Fill(e.JetPuppi_eta[i], weight)
-
-            if e_new_mva[i] > mva_wp2:
-                h_control_jet_pt[f"{key}_pass_wp2"].Fill(e.JetPuppi_pt[i], weight)
-                h_control_jet_eta[f"{key}_pass_wp2"].Fill(e.JetPuppi_eta[i], weight)
-
-            else:
-                h_control_jet_pt[f"{key}_fail_wp2"].Fill(e.JetPuppi_pt[i], weight)
-                h_control_jet_eta[f"{key}_fail_wp2"].Fill(e.JetPuppi_eta[i], weight)
-
-            if e_new_mva[i] > mva_wp3:
-                h_control_jet_pt[f"{key}_pass_wp3"].Fill(e.JetPuppi_pt[i], weight)
-                h_control_jet_eta[f"{key}_pass_wp3"].Fill(e.JetPuppi_eta[i], weight)
-
-            else:
-                h_control_jet_pt[f"{key}_fail_wp3"].Fill(e.JetPuppi_pt[i], weight)
-                h_control_jet_eta[f"{key}_fail_wp3"].Fill(e.JetPuppi_eta[i], weight)
-
-        if abs(dphi_zj) < 1.5:
-
-            key = "loose"
-
-            if e_new_mva[i] > mva_wp1:
-                h_control_jet_pt[f"{key}_pass_wp1"].Fill(e.JetPuppi_pt[i], weight)
-                h_control_jet_eta[f"{key}_pass_wp1"].Fill(e.JetPuppi_eta[i], weight)
-
-            else:
-                h_control_jet_pt[f"{key}_fail_wp1"].Fill(e.JetPuppi_pt[i], weight)
-                h_control_jet_eta[f"{key}_fail_wp1"].Fill(e.JetPuppi_eta[i], weight)
-
-            if e_new_mva[i] > mva_wp2:
-                h_control_jet_pt[f"{key}_pass_wp2"].Fill(e.JetPuppi_pt[i], weight)
-                h_control_jet_eta[f"{key}_pass_wp2"].Fill(e.JetPuppi_eta[i], weight)
-
-            else:
-                h_control_jet_pt[f"{key}_fail_wp2"].Fill(e.JetPuppi_pt[i], weight)
-                h_control_jet_eta[f"{key}_fail_wp2"].Fill(e.JetPuppi_eta[i], weight)
-
-            if e_new_mva[i] > mva_wp3:
-                h_control_jet_pt[f"{key}_pass_wp3"].Fill(e.JetPuppi_pt[i], weight)
-                h_control_jet_eta[f"{key}_pass_wp3"].Fill(e.JetPuppi_eta[i], weight)
-
-            else:
-                h_control_jet_pt[f"{key}_fail_wp3"].Fill(e.JetPuppi_pt[i], weight)
-                h_control_jet_eta[f"{key}_fail_wp3"].Fill(e.JetPuppi_eta[i], weight)
+                    if float(e_new_mva[i]) > mva_wp2:
+                        h_control_jet_pt[f"{key}_pass_wp2"].Fill(e.JetPuppi_pt[i], weight)
+                        h_control_jet_eta[f"{key}_pass_wp2"].Fill(e.JetPuppi_eta[i], weight)
+ 
+                    else:
+                        h_control_jet_pt[f"{key}_fail_wp2"].Fill(e.JetPuppi_pt[i], weight)
+                        h_control_jet_eta[f"{key}_fail_wp2"].Fill(e.JetPuppi_eta[i], weight)
+ 
+                    if float(e_new_mva[i]) > mva_wp3:
+                        h_control_jet_pt[f"{key}_pass_wp3"].Fill(e.JetPuppi_pt[i], weight)
+                        h_control_jet_eta[f"{key}_pass_wp3"].Fill(e.JetPuppi_eta[i], weight)
+ 
+                    else:
+                        h_control_jet_pt[f"{key}_fail_wp3"].Fill(e.JetPuppi_pt[i], weight)
+                        h_control_jet_eta[f"{key}_fail_wp3"].Fill(e.JetPuppi_eta[i], weight)
 
 
 total_events = events.GetEntries()
@@ -814,7 +832,7 @@ for i, event in enumerate(events):
     if i%1000 == 0:
         print("processing event:   %s/%s" % (i, total_events))
 
-    process_event(event)
+    process_event(i, event)
     
 # output file for histograms
 output_file = ROOT.TFile(output_filename, "RECREATE")

@@ -1,0 +1,39 @@
+# this is comment line
+executable            = run_analyze_make_hist_PUPPI.sh
+output                = output/$(output_filename).std
+error                 = output/$(output_filename).std
+log                   = output/$(output_filename).log
+
+
++JobFlavour           = "espresso"
+#+JobFlavour           = "workday"
+
+#+AccountingGroup      = "group_u_CMST3.all"
++AccountingGroup      = "group_u_CMS.u_zh.priority"
+
+era = 106X
+jet_type = puppi
+data_type = mc
+year = 2017
+period = full
+lumi = 41.54
+N_mc = 102941427
+xs = 5343.0
+output_filename = dy_amcatnlo_$(mc_pt)_$(data_type)_$(year)$(period)_$(ItemIndex).root
+input_filename = dcap://cluster142.knu.ac.kr//pnfs/knu.ac.kr/data/cms/store/user/shin/PU_Training_2017_with_weights/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/NanoTestPost/220907_041726/0000/tree_12.root
+
+
+
+
+transfer_input_files  = analyze_make_hists_PUPPI.py, tmva_weights_2017
+transfer_output_files = output_$(year),
+
+
+
+
+
+arguments = $(era) $(jet_type) $(data_type) $(year) $(period) $(lumi) $(N_mc) $(xs) $(input_filename) $(output_filename)
+
+
+queue
+# queue input_filename matching files $(input_file_dir)/*11.root

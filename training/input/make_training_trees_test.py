@@ -153,10 +153,10 @@ for ievent, event in enumerate(tChain):
         PuppiJet_eta = event.JetPuppi_eta[i]
         PuppiJet_phi = event.JetPuppi_phi[i]
         Gen_index = event.JetPuppi_genJetIdx[i]
-        if Gen_index == -1: continue
-        Matched_GenJet_eta = event.GenJet_eta[Gen_index]
-        Matched_GenJet_phi = event.GenJet_phi[Gen_index]
-        dRMatch_ = ((PuppiJet_eta-Matched_GenJet_eta)**2+(PuppiJet_phi-Matched_GenJet_phi)**2)**0.5
+        if Gen_index != -1:
+            Matched_GenJet_eta = event.GenJet_eta[Gen_index]
+            Matched_GenJet_phi = event.GenJet_phi[Gen_index]
+            dRMatch_ = ((PuppiJet_eta-Matched_GenJet_eta)**2+(PuppiJet_phi-Matched_GenJet_phi)**2)**0.5
         eta_     = event.JetPuppi_eta[i]
         flavor_  = event.JetPuppi_partonFlavour[i]
 

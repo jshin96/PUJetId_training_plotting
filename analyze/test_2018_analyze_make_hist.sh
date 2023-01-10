@@ -2,18 +2,16 @@
 
 source /cvmfs/sft.cern.ch/lcg/views/LCG_96python3/x86_64-centos7-gcc8-opt/setup.sh
 
-era="102X"
-#data_type="mc"
-data_type="data"
+era="106X"
+data_type="mc"
+#data_type="data"
 year="2018"
-#period="full"
-period="D"
+period="full"
+#period="D"
 lumi=59.96
-N_mc=100194597
+N_mc=96004933
 xs=5321.0
-#input_filename="/eos/user/s/singhr/jme_ntuples/dy_inc_${year}/cut_pt20/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/mc_flatTree_1.root"
-#input_filename="/eos/user/s/singhr/jme_ntuples/dy_inc_${year}/cut_pt10/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/mc_flatTree_1.root"
-input_filename="/eos/user/s/singhr/jme_ntuples/Data_${year}/DoubleMuon_${period}/data_flatTree_1.root"
+input_filename="/u/user/shin/SE_UserHome/PU_Training_Samples/2018/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_0.root"
 output_filename="output_hists_${data_type}_${year}${period}.root"
 
 ./analyze_make_hists.py \
