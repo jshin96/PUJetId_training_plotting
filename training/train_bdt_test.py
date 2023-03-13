@@ -16,7 +16,7 @@ parser.add_argument(
     "--era", type=str, default="106X", help="MC era, like 94X, 102X"
     )
 parser.add_argument(
-    "--max_N", type=int, default=200000, help="max N entries for testing and training"
+    "--max_N", type=int, default=500000, help="max N entries for testing and training"
     )
 parser.add_argument(
     "--jet_type", type=str, default="puppi", help="chs or puppi"
@@ -84,7 +84,7 @@ for eta_bin in eta_bins:
         PileupTrees["PileupTree_{0}".format(j)] = input_files["input_file_%i" %j].Get(eta_bin + "_Pileup")
 
     output_file = ROOT.TFile(
-        d_name +"/" + "tmva_output_Pt"+minJetpt + "To" + maxJetpt + eta_bin + "_" + jet_type +"_Grad_DNN.root",
+        d_name +"/" + "tmva_output_Pt"+minJetpt + "To" + maxJetpt + eta_bin + "_" + jet_type +".root",
 #        d_name +"/" + "tmva_output_Pt"+"40" + "To" + maxJetpt + eta_bin + "_" + jet_type +"GenIdx_Method.root",
         "RECREATE"
     )
@@ -160,7 +160,7 @@ for eta_bin in eta_bins:
         ]
      
 
-    if jet_type=="chs":
+    if jet_type=="chs" or jet_type=="chs_puppi_matching":
         # --------------SET 1 For ETA < 3----------------------
         var_set1 = [
             ("PV_npvsGood"                     , "I"),
@@ -234,9 +234,9 @@ for eta_bin in eta_bins:
     loader.PrepareTrainingAndTestTree(ROOT.TCut(''),"SplitMode=Random:NormMode=NumEvents:!V:nTrain_Signal=%d:nTest_Signal=%d:nTrain_Background=%d:nTest_Background=%d:" %(N, N, N, N))
     
     #-------------------------------------------------------------------
-#    factory.BookMethod(loader,ROOT.TMVA.Types.kBDT,"BDT","!H:!V:NTrees=500:BoostType=AdaBoost:Shrinkage=0.1:nCuts=20:DoBoostMonitor")
-    factory.BookMethod(loader,ROOT.TMVA.Types.kBDT,"BDTG","!H:!V:NTrees=500:BoostType=Grad:Shrinkage=0.1:nCuts=20:DoBoostMonitor")
-#    factory.BookMethod(loader,ROOT.TMVA.Types.kBDT,"BDTB","!H:!V:NTrees=500:BoostType=Bagging:Shrinkage=0.1:nCuts=20:DoBoostMonitor")
+    factory.BookMethod(loader,ROOT.TMVA.Types.kBDT,"BDT","!H:!V:NTrees=200:BoostType=AdaBoost:Shrinkage=0.1:nCuts=20:DoBoostMonitor")
+#    factory.BookMethod(loader,ROOT.TMVA.Types.kBDT,"BDTG","!H:!V:NTrees=200:BoostType=Grad:Shrinkage=0.1:nCuts=20:DoBoostMonitor")
+#    factory.BookMethod(loader,ROOT.TMVA.Types.kBDT,"BDTB","!H:!V:NTrees=200:BoostType=Bagging:Shrinkage=0.1:nCuts=20:DoBoostMonitor")
 #    factory.BookMethod(loader,ROOT.TMVA.Types.kDL,"DNN","!H:V:ErrorStrategy=CROSSENTROPY:Layout=TANH|128,TANH|128,TANH|128,LINEAR:TrainingStrategy=LearningRate=1e-1,Momentum=0.9,Optimizer=ADAM,BatchSize=256:Architecture=CPU")
     factory.TrainAllMethods()
     factory.TestAllMethods()

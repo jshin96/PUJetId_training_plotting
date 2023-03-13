@@ -226,7 +226,7 @@ for ievent, event in enumerate(tChain):
     if good_jets<1: continue
     pass_jet += 1
 
-#################CHS Jet Selection#########################
+#################PUPPI Jet Selection#########################
     for pj in range(event.nJetPuppi):
         PUPPI_clean_jet = True
         PUPPI_good_jet = ROOT.TLorentzVector()
@@ -314,10 +314,10 @@ for ievent, event in enumerate(tChain):
 #        if (dRMatch_ >= 0.4 and abs(flavor_) == 0 and GenJetIdx < 0):
 ###################selecting GenJetIdx already has 0.4 cut
         dR_CHS_PUPPI_Matched=False
+        min_dR_CHS_PUPPI = 9999
+        min_dR_CHS_PUPPI_index=-1
         if len(PUPPI_good_jet_index)>0:
             for PUPPI_index in PUPPI_good_jet_index:
-                min_dR_CHS_PUPPI = 9999
-                min_dR_CHS_PUPPI_index=-1
                 dR_CHS_PUPPI = ((eta_-event.JetPuppi_eta[PUPPI_index])**2+dphi(phi_,event.JetPuppi_phi[PUPPI_index])**2)**0.5
                 if dR_CHS_PUPPI < min_dR_CHS_PUPPI:
                     min_dR_CHS_PUPPI=dR_CHS_PUPPI
@@ -325,7 +325,7 @@ for ievent, event in enumerate(tChain):
 
 #            if (min_dR_CHS_PUPPI >= 0 and min_dR_CHS_PUPPI < 0.4):
 #                PUPPI_good_jet_index.remove(min_dR_CHS_PUPPI_index)
-        if (abs(flavor_) == 0 and GenJetIdx < 0 and min_dR_CHS_PUPPI<0.4):
+        if (abs(flavor_) == 0 and GenJetIdx < 0 and min_dR_CHS_PUPPI<0.2):
             isPileup = True
             nPileup += 1
         key = ""

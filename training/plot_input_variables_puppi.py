@@ -4,8 +4,8 @@ import ROOT
 eta_bins=["Eta0p0To2p5","Eta2p5To2p75","Eta2p75To3p0","Eta3p0To5p0"]
 eta_bin_range=["[0.0,2.5]","[2.5,2.75]","[2.75,3.0]","[3.0,5.0]"]
 input_files=[]
-for idx in range(17):
-   inputfile="input/puppi_2018_GenJetIdx/training_trees_pt10To100_puppi_106X_%i_2018.root" %idx
+for idx in range(18):
+   inputfile="input/PUPPI_RUN3_2022/training_trees_pt10To100_puppi_130X_%i_2022.root" %idx
    input_files.append(inputfile)
 
 

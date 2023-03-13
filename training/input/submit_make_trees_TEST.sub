@@ -1,0 +1,30 @@
+executable           = run_make_trees_TEST.sh 
+output               = std_make_trees_TEST_2018_$(ProcId)
+error                = std_make_trees_TEST_2018_$(ProcId)
+log                  = log_make_trees_TEST_2018_$(ProcId)
+use_x509userproxy    = True
+GetEnv               = True
+Universe             = vanilla
+
+transfer_input_files = make_training_trees_TEST_PFCands.py
+
+arguments            = 106X 2018 puppi none 10 100 none $(process_name) $(dz_name)
++JobFlavour          = "tomorrow"
+MaxTransferOutputMB = -1
+
+
+process_name=qcd
+dz_name=dZ0
+queue
+
+process_name=qcd
+dz_name=dz
+queue
+
+process_name=tt
+dz_name=dZ0
+queue
+
+process_name=tt
+dz_name=dz
+queue

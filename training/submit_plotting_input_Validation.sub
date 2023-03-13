@@ -1,0 +1,140 @@
+# this is comment line
+executable            = run_Validation_plotting.sh
+output                = Validation_plots/std_plotting_$(ClusterId)_$(ProcId)
+error                 = Validation_plots/std_plotting_$(ClusterId)_$(ProcId)
+log                   = Validation_plots/log_plotting_$(ClusterId)_$(ProcId)
+GetEnv                = True
+Universe              = vanilla
+
+
+
+transfer_input_files  = plot_input_variables_Validation.py,
+transfer_output_files = Validation_plots,
+request_memory = 32 GB 
+
+arguments             = $(jet_type) $(process_name) $(eta_s) $(eta_min) $(eta_max)
+
++JobFlavour           = "workday"
+
+
+eta_s                   = Eta0p0To2p5
+eta_min                 = 0.0
+eta_max                 = 2.5
+jet_type                = PUPPI               
+process_name            = QCD
+queue
+
+eta_s                   = Eta2p5To2p75
+eta_min                 = 2.5
+eta_max                 = 2.75
+jet_type                = PUPPI               
+process_name            = QCD
+queue
+
+eta_s                   = Eta2p75To3p0
+eta_min                 = 2.75
+eta_max                 = 3.0
+jet_type                = PUPPI               
+process_name            = QCD
+queue
+
+eta_s                   = Eta3p0To5p0
+eta_min                 = 3.0
+eta_max                 = 5.0
+jet_type                = PUPPI               
+process_name            = QCD
+queue
+
+eta_s                   = Eta0p0To2p5
+eta_min                 = 0.0
+eta_max                 = 2.5
+jet_type                = PUPPI               
+process_name            = TT
+queue
+
+eta_s                   = Eta2p5To2p75
+eta_min                 = 2.5
+eta_max                 = 2.75
+jet_type                = PUPPI               
+process_name            = TT
+queue
+
+eta_s                   = Eta2p75To3p0
+eta_min                 = 2.75
+eta_max                 = 3.0
+jet_type                = PUPPI               
+process_name            = TT
+queue
+
+eta_s                   = Eta3p0To5p0
+eta_min                 = 3.0
+eta_max                 = 5.0
+jet_type                = PUPPI               
+process_name            = TT
+queue
+
+eta_s                   = Eta0p0To2p5
+eta_min                 = 0.0
+eta_max                 = 2.5
+jet_type                = CHS               
+process_name            = QCD
+queue
+
+eta_s                   = Eta2p5To2p75
+eta_min                 = 2.5
+eta_max                 = 2.75
+jet_type                = CHS               
+process_name            = QCD
+queue
+
+eta_s                   = Eta2p75To3p0
+eta_min                 = 2.75
+eta_max                 = 3.0
+jet_type                = CHS               
+process_name            = QCD
+queue
+
+eta_s                   = Eta3p0To5p0
+eta_min                 = 3.0
+eta_max                 = 5.0
+jet_type                = CHS               
+process_name            = QCD
+queue
+
+eta_s                   = Eta0p0To2p5
+eta_min                 = 0.0
+eta_max                 = 2.5
+jet_type                = CHS               
+process_name            = TT
+queue
+
+eta_s                   = Eta2p5To2p75
+eta_min                 = 2.5
+eta_max                 = 2.75
+jet_type                = CHS               
+process_name            = TT
+queue
+
+eta_s                   = Eta2p75To3p0
+eta_min                 = 2.75
+eta_max                 = 3.0
+jet_type                = CHS               
+process_name            = TT
+queue
+
+eta_s                   = Eta3p0To5p0
+eta_min                 = 3.0
+eta_max                 = 5.0
+jet_type                = CHS               
+process_name            = TT
+queue
+
+
+
+
+
+
+
+
+
+

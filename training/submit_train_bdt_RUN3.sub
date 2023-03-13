@@ -1,0 +1,141 @@
+# this is comment line
+executable            = run_train_bdt_RUN3.sh
+output                = output/std_train_bdt_$(ClusterId)_$(ProcId)
+error                 = output/std_train_bdt_$(ClusterId)_$(ProcId)
+log                   = output/log_train_bdt_$(ClusterId)_$(ProcId)
+GetEnv                = True
+Universe              = vanilla
+
+
+
+transfer_input_files  = train_bdt_RUN3.py,
+transfer_output_files = output,
+request_memory = 32 GB 
+#arguments            = 106X 500000 chs_puppi_matching /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/2016APV $(eta_bin) 10 100 17 2016APV
+
+
+#+JobFlavour           = "workday"
+
+#eta_bin               = Eta0p0To2p5
+#queue
+
+#eta_bin               = Eta2p5To2p75
+#queue
+
+#eta_bin               = Eta2p75To3p0
+#queue
+
+#eta_bin               = Eta3p0To5p0
+#queue
+ 
+#arguments            = 106X 500000 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/2016 $(eta_bin) 10 100 12 2016
+
+#+JobFlavour           = "workday"
+#eta_bin               = Eta0p0To2p5
+#queue
+
+#eta_bin               = Eta2p5To2p75
+#queue
+
+#eta_bin               = Eta2p75To3p0
+#queue
+
+#eta_bin               = Eta3p0To5p0
+#queue
+# 
+#arguments            = 106X 500000 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/2017 $(eta_bin) 10 100 19 2017
+#
+
+#+JobFlavour           = "workday"
+
+#eta_bin               = Eta0p0To2p5
+#queue
+
+#eta_bin               = Eta2p5To2p75
+#queue
+
+#eta_bin               = Eta2p75To3p0
+#queue
+
+#eta_bin               = Eta3p0To5p0
+#queue
+# 
+
+
+arguments            = 130X 500000 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/PUPPI_RUN3_2022/MC22EE $(eta_bin) 10 100 47 MC22EE
+
++JobFlavour           = "workday"
+
+eta_bin               = Eta0p0To2p5
+queue
+
+eta_bin               = Eta2p5To2p75
+queue
+
+eta_bin               = Eta2p75To3p0
+queue
+
+eta_bin               = Eta3p0To5p0
+queue
+
+
+
+
+
+
+
+#+JobFlavour           = "workday"
+
+#arguments            = 130X 28011 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/PUPPI_RUN3_2022 $(eta_bin) 20 30 64 2022
+#eta_bin               = Eta0p0To2p5
+#queue
+
+#arguments            = 130X 36451 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/PUPPI_RUN3_2022 $(eta_bin) 20 30 64 2022
+#eta_bin               = Eta2p5To2p75
+#queue
+
+#arguments            = 130X 18588 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/PUPPI_RUN3_2022 $(eta_bin) 20 30 64 2022
+#eta_bin               = Eta2p75To3p0
+#queue
+
+#arguments            = 130X 63866 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/PUPPI_RUN3_2022 $(eta_bin) 20 30 64 2022
+#eta_bin               = Eta3p0To5p0
+#queue
+
+
+#+JobFlavour           = "workday"
+
+#arguments            = 130X 6861 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/PUPPI_RUN3_2022 $(eta_bin) 30 40 64 2022
+#eta_bin               = Eta0p0To2p5
+#queue
+
+#arguments            = 130X 14022 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/PUPPI_RUN3_2022 $(eta_bin) 30 40 64 2022
+#eta_bin               = Eta2p5To2p75
+#queue
+
+#arguments            = 130X 7788 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/PUPPI_RUN3_2022 $(eta_bin) 30 40 64 2022
+#eta_bin               = Eta2p75To3p0
+#queue
+
+#arguments            = 130X 21149 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/PUPPI_RUN3_2022 $(eta_bin) 30 40 64 2022
+#eta_bin               = Eta3p0To5p0
+#queue
+
+#+JobFlavour           = "workday"
+
+#arguments            = 130X 2199 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/PUPPI_RUN3_2022 $(eta_bin) 40 50 64 2022
+#eta_bin               = Eta0p0To2p5
+#queue
+
+#arguments            = 130X 3717 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/PUPPI_RUN3_2022 $(eta_bin) 40 50 64 2022
+#eta_bin               = Eta2p5To2p75
+#queue
+
+#arguments            = 130X 3652 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/PUPPI_RUN3_2022 $(eta_bin) 40 50 64 2022
+#eta_bin               = Eta2p75To3p0
+#queue
+
+#arguments            = 130X 8889 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/PUPPI_RUN3_2022 $(eta_bin) 40 50 64 2022
+#eta_bin               = Eta3p0To5p0
+#queue
+

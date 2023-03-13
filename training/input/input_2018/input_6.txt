@@ -1,0 +1,10 @@
+dcap://cluster142.knu.ac.kr//pnfs/knu.ac.kr/data/cms/store/user/shin/PU_Training_2018_with_weights/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/NanoTestPost/220907_030233/0000/tree_153.root 
+dcap://cluster142.knu.ac.kr//pnfs/knu.ac.kr/data/cms/store/user/shin/PU_Training_2018_with_weights/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/NanoTestPost/220907_030233/0000/tree_154.root 
+dcap://cluster142.knu.ac.kr//pnfs/knu.ac.kr/data/cms/store/user/shin/PU_Training_2018_with_weights/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/NanoTestPost/220907_030233/0000/tree_155.root 
+dcap://cluster142.knu.ac.kr//pnfs/knu.ac.kr/data/cms/store/user/shin/PU_Training_2018_with_weights/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/NanoTestPost/220907_030233/0000/tree_156.root 
+dcap://cluster142.knu.ac.kr//pnfs/knu.ac.kr/data/cms/store/user/shin/PU_Training_2018_with_weights/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/NanoTestPost/220907_030233/0000/tree_157.root 
+dcap://cluster142.knu.ac.kr//pnfs/knu.ac.kr/data/cms/store/user/shin/PU_Training_2018_with_weights/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/NanoTestPost/220907_030233/0000/tree_158.root 
+dcap://cluster142.knu.ac.kr//pnfs/knu.ac.kr/data/cms/store/user/shin/PU_Training_2018_with_weights/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/NanoTestPost/220907_030233/0000/tree_159.root 
+dcap://cluster142.knu.ac.kr//pnfs/knu.ac.kr/data/cms/store/user/shin/PU_Training_2018_with_weights/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/NanoTestPost/220907_030233/0000/tree_16.root 
+dcap://cluster142.knu.ac.kr//pnfs/knu.ac.kr/data/cms/store/user/shin/PU_Training_2018_with_weights/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/NanoTestPost/220907_030233/0000/tree_160.root 
+dcap://cluster142.knu.ac.kr//pnfs/knu.ac.kr/data/cms/store/user/shin/PU_Training_2018_with_weights/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/NanoTestPost/220907_030233/0000/tree_161.root 

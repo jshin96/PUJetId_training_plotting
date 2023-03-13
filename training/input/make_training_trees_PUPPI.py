@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(
     description="make TTrees for training"
     )
 parser.add_argument(
-    "--era", type=str, default="106X", help="MC era, like 94X, 102X"
+    "--era", type=str, default="106X", help="MC era, like 94X, 102X, 106X, 130X"
     )
 parser.add_argument(
     "--year", type=str, default="", help="sample year"
@@ -164,10 +164,11 @@ ROOT.gSystem.Load("libFWCoreFWLite.so")
 
 
 
+
 for ievent, event in enumerate(tChain):
     if ievent % 1000 == 0:
         print("processing %s" % ievent)
-#    if ievent == 30000: break
+#    if ievent == 10: break
     nEvent+=1
     if event.nGenJet==0: continue
 ############################################## add selection rules####################################################

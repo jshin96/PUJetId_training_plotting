@@ -459,7 +459,7 @@ for x,eta_bin in enumerate(eta_bins):
          chs_signal[i].Draw("HIST SAME")
          puppi_signal[i].Draw("HIST SAME")
       lgd.Draw("SAME")
-      c.SaveAs("PFCands_puId_plot_%s_%s_Prompt.png" %(name,eta_bin))
+      c.SaveAs("puppi_PFCands_puId_plot_%s_%s_Prompt.png" %(name,eta_bin))
 
    for i,name in enumerate(var):
       ROOT.gStyle.SetHatchesLineWidth(2)
@@ -502,7 +502,7 @@ for x,eta_bin in enumerate(eta_bins):
          chs_background[i].Draw("HIST SAME")
          puppi_background[i].Draw("HIST SAME")
       lgd.Draw("SAME")
-      c.SaveAs("PFCands_puId_plot_%s_%s_Pileup.png" %(name,eta_bin))
+      c.SaveAs("puppi_PFCands_puId_plot_%s_%s_Pileup.png" %(name,eta_bin))
 
    for i,name in enumerate(var):
       ROOT.gStyle.SetHatchesLineWidth(2)
@@ -545,7 +545,7 @@ for x,eta_bin in enumerate(eta_bins):
          chs_combine[i].Draw("HIST SAME")
          puppi_combine[i].Draw("HIST SAME")
       lgd.Draw("SAME")
-      c.SaveAs("PFCands_puId_plot_%s_%s_Combined.png" %(name,eta_bin))
+      c.SaveAs("puppi_PFCands_puId_plot_%s_%s_Combined.png" %(name,eta_bin))
 
 
 

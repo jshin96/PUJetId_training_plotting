@@ -92,10 +92,6 @@ def book_int_branch(ttree, branch_name, default_value=-999):
     ttree.Branch(branch_name, branch_array, "%s/I" % branch_name)        
     return branch_array
 
-def book_array_branch(ttree, branch_name, default_value=-99):
-    branch_array = array("f", [default_value])
-    branch = ttree.Branch(branch_name, branch_array, '%s/F' % branch_name )        
-    return branch_array, branch
 
 NTrees = len(outTrees)
 PFCands_dR_len = 1
@@ -480,7 +476,6 @@ for ievent, event in enumerate(tChain):
                 temp_PFCands_Dphi = dphi(event.PFCands_phi[temp_PFCandsIdx],phi_)
                 weighted_pt = temp_PFCands_pt * event.PFCands_puppiWeight[temp_PFCandsIdx]
                 weighted_pt2 = weighted_pt * weighted_pt
-                sum_weighted_pt2 += weighted_pt2
                 ddeta = temp_PFCands_Deta - avg_deta
                 ddphi = temp_PFCands_Dphi - avg_dphi   
                 ddR = (ddeta*ddeta + ddphi*ddphi)**0.5

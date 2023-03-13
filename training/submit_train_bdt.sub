@@ -11,7 +11,7 @@ Universe              = vanilla
 transfer_input_files  = train_bdt_test.py,
 transfer_output_files = output,
 request_memory = 32 GB 
-#arguments            = 106X 500000 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/2016APV $(eta_bin) 10 100 17 2016APV
+#arguments            = 106X 500000 chs_puppi_matching /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/2016APV $(eta_bin) 10 100 17 2016APV
 
 
 #+JobFlavour           = "workday"
@@ -77,7 +77,7 @@ request_memory = 32 GB
 #eta_bin               = Eta3p0To5p0
 #queue
 
-arguments            = 106X 500000 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/puppi_2018_GenJetIdx $(eta_bin) 10 100 17 2018
+arguments            = 106X 200000 puppi /u/user/shin/scratch/training_code/PUJetId_training_plotting/training/input/puppi_2018_GenJetIdx $(eta_bin) 10 100 17 2018
 
 
 +JobFlavour           = "workday"
